@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototipo | F.G.S. Drill</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&display=swap">
+<style>
+  :root { --ink: #0b0b0b; --yellow: #eec30d; --paper: #f5f5f3; --text: #2b2b2a; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font: 400 17px/1.5 "Google Sans", system-ui, sans-serif; color: var(--text); background: var(--paper); }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+  header { background: var(--ink); color: #fff; padding: 48px 0 56px; }
+  header img { width: 120px; height: auto; display: block; margin-bottom: 32px; }
+  h1 { font-weight: 500; font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.05; letter-spacing: -.02em; }
+  header p { margin-top: 14px; color: #cfcec8; }
+  section { padding: 56px 0 8px; }
+  h2 { font-weight: 500; font-size: 1.5rem; letter-spacing: -.01em; margin-bottom: 24px; color: var(--ink); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+  .card { display: block; text-decoration: none; color: inherit; background: #fff; border: 1px solid #e3e3df; }
+  .card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-bottom: 1px solid #e3e3df; }
+  .card span { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; font-weight: 500; color: var(--ink); }
+  .card span::after { content: "Apri →"; font-size: 14px; font-weight: 400; }
+  .card:hover span, .card:focus-visible span { background: var(--yellow); }
+  footer { padding: 56px 0; font-size: 14px; color: #6b6b68; }
+  @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <img src="img/logo.svg" alt="F.G.S. Drill" width="300" height="209">
+  <h1>Prototipo del nuovo sito</h1>
+  <p>Le versioni di home e pagina chi siamo. Dalla barra in alto di ogni pagina si passa da una versione all’altra.</p>
+</div></header>
+<main class="wrap">
+  <section>
+    <h2>Home</h2>
+    <div class="grid">
+      <a class="card" href="home-a.html"><img src="img/anteprime/home-a.jpeg" alt="" loading="lazy"><span>Home(A)</span></a>
+      <a class="card" href="nuova/index.html"><img src="img/anteprime/home-b.jpeg" alt="" loading="lazy"><span>Home(B)</span></a>
+    </div>
+  </section>
+  <section>
+    <h2>Chi siamo</h2>
+    <div class="grid">
+      <a class="card" href="chi-siamo-a.html"><img src="img/anteprime/chi-siamo-a.jpeg" alt="" loading="lazy"><span>Chi siamo(A)</span></a>
+      <a class="card" href="nuova/chi-siamo.html"><img src="img/anteprime/chi-siamo-b.jpeg" alt="" loading="lazy"><span>Chi siamo(B)</span></a>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Prototipo non indicizzato · F.G.S. Drill S.r.l.</div></footer>
+</body>
+</html>

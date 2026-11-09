@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sostenibilità e ISO 14001 | F.G.S. Drill</title>
+<meta name="description" content="Sistema di gestione ambientale ISO 14001, acciaio a ridotte emissioni di carbonio ed energia solare per lo stabilimento F.G.S. Drill di Modugno.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.css">
+<link rel="stylesheet" href="assets/style.css?v=c9">
+<style>
+  /* Pagina ricreata da fgsdrill.nb4dev.it/sostenibilita/ (stessi testi) con le sezioni di primes.com.au/about/approach-safety-hseq.
+     Barra, margini, titoli, angoli e bottoni come Chi siamo e Home(A). */
+  @media (min-width: 768px) { :root { --wrap: none; --gut: 50px; } }
+  :root { --head: 72px; }
+  header.site { border-bottom: 0; }
+  body.over.scrolled:not(.menu-open) header.site:not(:has(.mega:hover)):not(:has(.mega:focus-within)) { background: rgba(255, 255, 255, .8); -webkit-backdrop-filter: blur(28px); backdrop-filter: blur(28px); border-color: transparent; }
+
+  .srt { font-size: clamp(2.3rem, 4.45vw, 4rem); line-height: 1.1; font-weight: 700; letter-spacing: -.01em; color: #b9b9b6; }
+  .srt .word { color: inherit; }
+  .sec { padding-block: clamp(80px, 8vw, 130px); }
+  .intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 50px; align-items: end; }
+  .intro .srt { max-width: 12em; }
+  .intro-r { justify-self: end; max-width: 520px; }
+  .intro-r p { font-size: 17px; line-height: 1.6; color: var(--text); }
+  .intro-r p + p { margin-top: 16px; }
+
+  /* HERO (come Chi siamo e primes): titolo in basso a sinistra, testo in basso a destra */
+  .sx-hero { position: relative; min-height: max(620px, calc(100svh - 45px)); display: flex; align-items: flex-end; isolation: isolate; color: #fff; overflow: hidden; }
+  .sx-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+  .sx-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.05) 35%, rgba(0,0,0,.65) 100%); }
+  .sx-hero .wrap { width: 100%; padding-bottom: clamp(48px, 7vh, 72px); }
+  .crumb { font-size: 13.6px; margin-bottom: 20px; }
+  .crumb a { color: inherit; text-decoration: none; }
+  .crumb a:hover { text-decoration: underline; }
+  .sx-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 50px; align-items: end; }
+  .sx-hero h1 { max-width: 13em; font-size: clamp(2.6rem, 4.6vw, 4.4rem); line-height: 1.06; letter-spacing: -.02em; }
+  .sx-hero .sx-lead { justify-self: end; max-width: 520px; font-size: 18px; line-height: 1.5; color: #fff; }
+
+  /* TRE FRONTI (primes IconGrid): titolo in alto, icona a linee al centro, testo in basso */
+  .fronts { background: #fff; }
+  .ig { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(48px, 5vw, 72px); border-block: 1px solid #d6d5d0; }
+  .ig-card { display: flex; flex-direction: column; padding: 26px 24px 28px; border-left: 1px solid #d6d5d0; }
+  .ig-card:first-child { border-left: 0; padding-left: 0; }
+  .ig-card h3 { min-height: 2.5em; font-size: 22px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; max-width: 16em; }
+  .ig-ico { height: 300px; display: grid; place-items: center; padding: 32px 0; }
+  .ig-ico svg { width: min(220px, 70%); height: auto; overflow: visible; }
+  .ig-ico svg * { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+  .ig-ico svg .y { stroke: var(--yellow); stroke-width: 2.5; }
+  .ig-ico svg .d { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.4s var(--ease); }
+  .ig-card.in .d { stroke-dashoffset: 0; }
+  .ig-card p { font-size: 16.5px; line-height: 1.55; color: var(--text); max-width: 30em; }
+
+  /* CHIUSURA (come Home(A), primes Contact) */
+  .close { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
+  .close-l { background: var(--yellow); color: var(--ink); padding: clamp(56px, 6vw, 90px) var(--gut); min-height: 520px; }
+  .close-l .eyebrow { color: var(--ink); }
+  .close-l .eyebrow::before { background: var(--ink); }
+  .close-l h2 { font-size: clamp(2.4rem, 4.2vw, 4.2rem); line-height: 1.05; letter-spacing: -.03em; max-width: 9em; }
+  .close-r { background: var(--ink); color: #fff; padding: clamp(56px, 6vw, 90px) var(--gut); display: flex; flex-direction: column; justify-content: center; }
+  .close-r > p { font-size: 19px; line-height: 1.55; color: #e4e3dd; max-width: 30em; }
+  .ct { margin: 36px 0 0; padding: 0; list-style: none; max-width: 640px; }
+  .ct li { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line-dark); font-size: 17px; }
+  .ct li:first-child { border-top: 1px solid var(--line-dark); }
+  .ct span { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #b9b8b2; padding-top: 3px; }
+  .ct a, .ct p { margin: 0; color: #fff; text-decoration: none; }
+  .ct a:hover { text-decoration: underline var(--yellow) 2px; text-underline-offset: 6px; }
+  .close-r .btn { margin-top: 36px; align-self: start; }
+
+  @media (max-width: 1024px) {
+    .intro, .sx-cols, .close { grid-template-columns: 1fr; }
+    .intro { gap: 24px; }
+    .intro-r, .sx-lead { justify-self: start; }
+    .sx-cols { gap: 24px; }
+    .ig { grid-template-columns: 1fr; }
+    .ig-card, .ig-card:first-child { min-height: 0; padding: 26px 0 30px; border-left: 0; border-top: 1px solid #d6d5d0; }
+    .ig-card:first-child { border-top: 0; }
+    .ig-ico svg { width: 180px; }
+    .close-l { min-height: 0; }
+  }
+  @media (max-width: 600px) { .ct li { grid-template-columns: 1fr; gap: 4px; } }
+  @media (prefers-reduced-motion: reduce) { .ig-ico svg .d { stroke-dashoffset: 0; transition: none; } }
+</style>
+</head>
+<body data-page="sostenibilita" class="over">
+
+<main>
+  <section class="sx-hero dark" aria-labelledby="sx-t">
+    <img src="img/impianto-pannelli-solari-fgs-drill.webp" alt="" fetchpriority="high">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Percorso"><a href="home-a.html">Home</a> » Sostenibilità</nav>
+      <div class="sx-cols">
+        <h1 id="sx-t" class="lines">Sostenibilità e responsabilità ambientale</h1>
+        <p class="sx-lead rv" style="--d:.35s">Ridurre l’impatto ambientale della produzione significa intervenire concretamente sui processi, sui materiali e sull’energia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRE FRONTI (primes IconGrid) -->
+  <section class="sec fronts light" aria-labelledby="fr-t">
+    <div class="wrap">
+      <div class="intro">
+        <h2 id="fr-t" class="srt">Un impegno concreto per una produzione più sostenibile</h2>
+        <div class="intro-r rv">
+          <p>Per F.G.S. Drill sostenibilità significa ridurre l’impatto ambientale delle attività produttive intervenendo su tre fronti: il sistema di gestione, i materiali e l’energia.</p>
+          <p>Sono interventi che si affiancano al lavoro sulla qualità, certificato ISO 9001:2015, con l’obiettivo di rendere lo stabilimento di Modugno sempre più efficiente.</p>
+        </div>
+      </div>
+      <div class="ig">
+        <article class="ig-card">
+          <h3>Sistema di gestione ambientale certificato ISO 14001</h3>
+          <div class="ig-ico" aria-hidden="true">
+            <!-- ciclo del miglioramento continuo -->
+            <svg viewBox="0 0 200 180">
+              <path class="d" pathLength="1" d="M100 26A64 64 0 1 1 44.6 58"/>
+              <path d="M33.7 63.1L44.6 58l1.1 12"/>
+              <path class="d" pathLength="1" d="M100 134A44 44 0 1 1 138.1 112"/>
+              <path d="M149 106.9l-10.9 5.1-1.1-12"/>
+              <circle cx="100" cy="90" r="22"/>
+              <path class="y d" pathLength="1" d="M90 90l7 7 14-15"/>
+            </svg>
+          </div>
+          <p>Le attività di F.G.S. Drill seguono un sistema di gestione ambientale certificato ISO 14001:2015, che governa gli aspetti ambientali della produzione e ne prevede il miglioramento continuo.</p>
+        </article>
+        <article class="ig-card">
+          <h3>Acciaio a ridotte emissioni di carbonio</h3>
+          <div class="ig-ico" aria-hidden="true">
+            <!-- barre d'acciaio e freccia verso il basso -->
+            <svg viewBox="0 0 200 180">
+              <rect class="d" pathLength="1" x="18" y="46" width="128" height="22" rx="11"/>
+              <rect class="d" pathLength="1" x="18" y="79" width="128" height="22" rx="11"/>
+              <rect class="d" pathLength="1" x="18" y="112" width="128" height="22" rx="11"/>
+              <circle cx="135" cy="57" r="5"/><circle cx="135" cy="90" r="5"/><circle cx="135" cy="123" r="5"/>
+              <path class="y d" pathLength="1" d="M178 36v94"/>
+              <path class="y" d="M166 118l12 12 12-12"/>
+            </svg>
+          </div>
+          <p>Usiamo acciaio a ridotte emissioni di carbonio: riduce l’impatto ambientale legato alla produzione senza rinunciare alla resistenza e alla qualità richieste dalle applicazioni di perforazione.</p>
+        </article>
+        <article class="ig-card">
+          <h3>Energia solare per lo stabilimento di Modugno</h3>
+          <div class="ig-ico" aria-hidden="true">
+            <!-- sole e pannello fotovoltaico -->
+            <svg viewBox="0 0 200 180">
+              <circle class="y d" pathLength="1" cx="58" cy="50" r="16"/>
+              <path class="y" d="M58 20v-8M58 88v-8M28 50h-8M96 50h-8M36.8 28.8l-5.7-5.7M84.9 76.9l-5.7-5.7M36.8 71.2l-5.7 5.7M84.9 23.1l-5.7 5.7"/>
+              <path class="d" pathLength="1" d="M66 160l32-62h86l-32 62z"/>
+              <path d="M82 129h86M126.7 98l-32 62M155.3 98l-32 62"/>
+            </svg>
+          </div>
+          <p>L’impianto fotovoltaico installato sullo stabilimento di Modugno copre circa l’80% del fabbisogno energetico della struttura e riduce il ricorso a fonti di energia esterne.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHIUSURA (come Home(A)) -->
+  <section class="close" aria-labelledby="close-t">
+    <div class="close-l">
+      <p class="eyebrow">Il prossimo progetto</p>
+      <h2 id="close-t" class="lines">Ogni progetto inizia da una buona intesa.</h2>
+    </div>
+    <div class="close-r">
+      <p>Hai bisogno di un componente standard o di una soluzione speciale? Parliamone.</p>
+      <ul class="ct">
+        <li><span>Telefono</span><a href="tel:+390805311111">+39 080 531 1111</a></li>
+        <li><span>Email</span><a href="mailto:info@fgsdrill.it">info@fgsdrill.it</a></li>
+        <li><span>Sede</span><p>Via dei Gerani 36, 70026 Modugno (BA), Italia</p></li>
+      </ul>
+      <a class="btn" href="https://fgsdrill.nb4dev.it/richiesta-preventivo/">Richiedi un preventivo</a>
+    </div>
+  </section>
+</main>
+<script src="assets/site.js?v=c5"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+<script src="assets/motion.js?v=2"></script>
+<script>
+(() => {
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Icone: le linee si disegnano quando la card entra in vista
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .35 });
+  document.querySelectorAll(".ig-card").forEach(c => still ? c.classList.add("in") : io.observe(c));
+
+  if (!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+  // Titoli che si colorano parola per parola (come Chi siamo)
+  document.querySelectorAll(".srt").forEach(el => {
+    el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="word">${w}</span>`).join(" ");
+    const to = el.dataset.theme === "dark" ? "#ffffff" : "#1a1a1a";
+    if (still) return gsap.set(el.querySelectorAll(".word"), { color: to });
+    gsap.to(el.querySelectorAll(".word"), { color: to, stagger: .05, scrollTrigger: { trigger: el, start: "top 80%", end: "top 20%", scrub: true } });
+  });
+})();
+</script>
+</body>
+</html>

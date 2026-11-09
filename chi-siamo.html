@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chi siamo | F.G.S. Drill</title>
+<meta name="description" content="Da oltre vent’anni F.G.S. Drill progetta e produce aste e attrezzature per la perforazione nello stabilimento di Modugno (Bari).">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.css">
+<link rel="stylesheet" href="assets/style.css?v=c9">
+<style>
+  /* Container a tutta larghezza con 50px ai lati (header e footer compresi, così restano allineati) */
+  @media (min-width: 768px) { :root { --wrap: none; --gut: 50px; } }
+  /* Barra come bluesqx.com/about: 72px, trasparente sulla hero, allo scroll bianco all'80% con sfocatura, senza bordo */
+  :root { --head: 72px; }
+  header.site { border-bottom: 0; }
+  body.over.scrolled:not(.menu-open) header.site:not(:has(.mega:hover)):not(:has(.mega:focus-within)) { background: rgba(255, 255, 255, .8); -webkit-backdrop-filter: blur(28px); backdrop-filter: blur(28px); border-color: transparent; }
+  /* Pagina ricreata da fgsdrill.nb4dev.it/chi-siamo/ (stessi testi, layout e animazioni).
+     Unica sezione diversa: "Una produzione progettata sulle esigenze del cliente", fatta come il carosello di dalco.ch/meet-dalco. */
+
+  /* Titoli di sezione: si colorano parola per parola allo scroll (.scroll-reveal-text del sito) */
+  .srt { font-size: clamp(2.3rem, 4.45vw, 4rem); line-height: 1.1; font-weight: 700; letter-spacing: -.01em; color: #b9b9b6; }
+  .srt .word { color: inherit; }
+
+  /* HERO */
+  .cs-hero { position: relative; min-height: max(620px, calc(100svh - 45px)); display: flex; align-items: flex-end; isolation: isolate; color: #fff; overflow: hidden; }
+  .cs-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+  .cs-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(rgba(255, 255, 255, 0) 0%, #000 100%); opacity: .6; }
+  .cs-hero::before { content: ""; position: absolute; inset: auto 0 0; height: 55%; z-index: -1; background: linear-gradient(to top, rgba(0, 0, 0, .45), transparent); }
+  .cs-hero .wrap { width: 100%; padding-bottom: clamp(48px, 7vh, 72px); }
+  .crumb { font-size: 13.6px; margin-bottom: 20px; }
+  .crumb a { text-decoration: none; }
+  .crumb a:hover { text-decoration: underline; }
+  .cs-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 50px; align-items: end; }
+  .cs-hero .cs-cols .cs-lead { margin-top: 0; justify-self: end; }
+  .cs-hero h1 { max-width: 15em; font-size: clamp(2.4rem, 3.9vw, 3.5rem); line-height: 1.14; letter-spacing: -.01em; }
+  .cs-hero .cs-lead { max-width: 640px; margin-top: 28px; font-size: 18px; line-height: 1.5; color: #fff; animation: cs-in .9s cubic-bezier(.2, .7, .2, 1) .55s both; }
+  @keyframes cs-in { from { opacity: 0; transform: translateY(14px); } }
+
+  /* ESPERIENZA, TECNOLOGIA E PRODUZIONE INTERNA: foto che si apre, testo e contatori */
+  .exp { padding-block: clamp(80px, 6vw, 90px) clamp(72px, 6vw, 90px); }
+  .exp .srt { max-width: 11.5em; }
+  .exp-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 50px; margin-top: 60px; }
+  .exp-pic, .pc-card, .pc-pic { border-radius: 8px; overflow: hidden; }
+  .exp-pic img { width: 100%; height: 100%; min-height: 560px; object-fit: cover; }
+  .exp-txt { display: flex; flex-direction: column; justify-content: space-between; gap: 48px; padding-top: 52px; }
+  .exp-txt p { font-size: 17px; line-height: 1.6; color: var(--text); }
+  .exp-txt p + p { margin-top: 16px; }
+  .counters { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .counter { border-top: 1px solid var(--line); padding-top: 16px; }
+  .counter span { display: block; font-size: 22px; color: var(--ink); }
+  .counter b { display: block; margin-top: 12px; font-size: clamp(3.4rem, 5.6vw, 5rem); line-height: 1; font-weight: 700; }
+
+  /* UNA PRODUZIONE PROGETTATA SULLE ESIGENZE DEL CLIENTE (struttura dalco.ch): card scura, slide in dissolvenza ogni 6s, barre */
+  .prod { padding-block: clamp(40px, 4vw, 60px) clamp(72px, 7vw, 100px); }
+  .prod .srt { max-width: 16em; }
+  .pc-card { position: relative; margin-top: 60px; background: var(--ink-2); height: clamp(520px, 47vw, 680px); overflow: hidden; }
+  .pc-slide { position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; padding: 20px; opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility 0s linear .5s; }
+  .pc-slide.on { opacity: 1; visibility: visible; transition: opacity .5s ease; }
+  .pc-txt { display: flex; flex-direction: column; justify-content: center; padding: 0 clamp(16px, 3vw, 50px); color: #fff; }
+  .pc-txt .n { font-size: 15px; color: #8d8c87; }
+  .pc-txt h3 { margin-top: 18px; font-size: clamp(2rem, 3.2vw, 2.9rem); line-height: 1.15; font-weight: 500; letter-spacing: -.02em; color: var(--yellow); }
+  .pc-txt p { margin-top: clamp(28px, 4vw, 60px); font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.45; color: #fff; max-width: 30em; }
+  .pc-pic { overflow: hidden; }
+  .pc-pic img { width: 100%; height: 100%; object-fit: cover; }
+  .pc-bars { display: flex; justify-content: center; gap: 30px; margin-top: 38px; }
+  .pc-bars button { position: relative; width: min(260px, 20vw); padding: 20px 0 0; border: 0; background: none; cursor: pointer; text-align: left; font: 500 15px/1.35 var(--font); color: #8d8c87; transition: color .3s ease; }
+  .pc-bars button.on, .pc-bars button:hover { color: var(--ink); }
+  .pc-bars button::before, .pc-bars button i { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 1px; background: #d3d2cd; }
+  .pc-bars button i { right: auto; width: 0; background: var(--ink); }
+  .pc-bars button.done i { width: 100%; }
+  .pc-bars button.on i { animation: pc-fill 6s linear forwards; }
+  .pc-bars.paused button.on i { animation-play-state: paused; }
+  @keyframes pc-fill { to { width: 100%; } }
+
+  /* I VALORI CHE CI GUIDANO: parole grandi che si accendono allo scroll, righelli ai lati (widget fgs-values-highlight del sito) */
+  .vals { padding-block: clamp(80px, 8vw, 120px) clamp(40px, 4vw, 60px); background: var(--ink); color: #fff; }
+  .vals .srt { color: #5a5a57; }
+  .vals .vh-tick { background: #fff; }
+  .vals .vh-text { color: #d6d5cf; }
+  .vh { padding: 60px 0 80px; }
+  .vh-wrapper { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 16px; }
+  .vh-ticks { grid-column: 1 / span 2; grid-row: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; }
+  .vh-ticks-right { grid-column: 12; align-items: flex-end; }
+  .vh-tick { width: 12px; height: 1px; background: #151515; opacity: .2; transition: width .2s ease, opacity .2s ease; }
+  .vh-tick.is-m { width: 14px; opacity: .45; } .vh-tick.is-l { width: 16px; opacity: .55; } .vh-tick.is-xl { width: 20px; opacity: .65; } .vh-tick.is-xxl { width: 24px; opacity: .75; }
+  .vh-words { grid-column: 3 / span 8; grid-row: 1; min-width: 0; display: flex; flex-direction: column; gap: 28px; }
+  .vh-item { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); column-gap: 16px; align-items: start; }
+  .vh-word { grid-column: 1 / span 5; white-space: nowrap; margin: 0; font-size: clamp(3.5rem, 5vw, 8rem); font-weight: 800; line-height: 1.05; letter-spacing: -.015em; opacity: .15; transition: opacity .2s ease-in-out; }
+  .vh-item.is-active .vh-word { opacity: 1; }
+  .vh-text { grid-column: 6 / span 3; max-width: 280px; margin: .6em 0 0; font-size: 15px; line-height: 1.5; opacity: 0; height: 0; overflow: visible; }
+  .vh-item.is-active .vh-text { opacity: 1; }
+  .vh-line { display: block; overflow: hidden; }
+  .vh-line-in { display: block; }
+
+  /* LE PERSONE DIETRO OGNI COMPONENTE: titolo e testo sopra, foto intera sotto (il testo non copre i volti) */
+  .team { padding-block: clamp(40px, 4vw, 60px) clamp(80px, 7vw, 110px); }
+  .team-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 50px; align-items: end; }
+  .team .srt { max-width: 10em; }
+  .team-txt { justify-self: end; max-width: 440px; }
+  .team-txt p { font-size: 17px; line-height: 1.6; color: var(--text); }
+  .team-pic { margin-top: 60px; border-radius: 8px; overflow: hidden; }
+  .team-pic img { width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; object-position: center 90%; }
+  .team-txt .link { margin-top: 32px; color: var(--ink); text-transform: none; font-weight: 500; font-size: 15px; letter-spacing: 0; }
+  .team-txt .link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+
+  @media (max-width: 1024px) {
+    .exp-grid, .team-head, .cs-cols { grid-template-columns: 1fr; }
+    .team-txt, .cs-hero .cs-cols .cs-lead { justify-self: start; }
+    .cs-cols { gap: 0; }
+    .cs-hero .cs-cols .cs-lead { margin-top: 28px; }
+    .team-pic { margin-top: 40px; }
+    .team-pic img { aspect-ratio: 4 / 3; }
+    .exp-pic img { min-height: 360px; }
+    .exp-txt { padding-top: 0; }
+    .pc-card { height: auto; }
+    .pc-slide { position: relative; grid-template-columns: 1fr; display: none; }
+    .pc-slide.on { display: grid; }
+    .pc-pic { order: -1; aspect-ratio: 4 / 3; }
+    .pc-txt { padding: 12px 8px 20px; }
+    .pc-bars button { width: 22vw; padding-top: 13px; }
+    .pc-bars button span { display: none; }
+    .vh { padding-bottom: 0; }
+    .vh-wrapper { display: block; }
+    .vh-ticks { display: none; }
+    .vh-words { gap: 40px; }
+    .vh-item { grid-template-columns: 1fr; }
+    .vh-word, .vh-text { grid-column: 1; max-width: none; white-space: normal; }
+    .vh-word { font-size: clamp(1.8rem, 8vw, 2.5rem); opacity: 1; }
+    .vh-text { opacity: 1; font-size: .9rem; margin-top: 12px; height: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) { .cs-hero .cs-lead { animation: none; } }
+</style>
+</head>
+<body data-page="chi-siamo" class="over">
+<main>
+
+  <section class="cs-hero dark" aria-labelledby="cs-t">
+    <img src="img/interno-azienda-fgs-drill.webp" alt="" fetchpriority="high">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Percorso"><a href="home-a.html">Home</a> » Chi siamo</nav>
+      <div class="cs-cols">
+        <h1 id="cs-t" class="lines">F.G.S. Drill: esperienza e produzione per la perforazione</h1>
+        <p class="cs-lead">Da oltre vent’anni progettiamo e produciamo aste e attrezzature per la perforazione. Conosciamo le esigenze operative di chi lavora sul campo e traduciamo le richieste tecniche in componenti destinati a diverse applicazioni</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="exp" aria-labelledby="exp-t">
+    <div class="wrap">
+      <h2 id="exp-t" class="srt">Esperienza, tecnologia e produzione interna</h2>
+      <div class="exp-grid">
+        <div class="exp-pic image-reveal"><img src="img/tubi-aste.webp" alt="Tubi e aste di perforazione F.G.S. Drill" loading="lazy"></div>
+        <div class="exp-txt">
+          <div>
+            <p>F.G.S. Drill lavora nel settore della perforazione da oltre vent’anni, con una conoscenza diretta sia dei processi produttivi sia delle esigenze operative dei clienti.</p>
+            <p>Nel nostro stabilimento di Modugno (Bari) gestiamo internamente le principali fasi della produzione (taglio, tornitura, foratura, fresatura, rettifica, stozzatura, indurimento superficiale, saldatura, frizionatura e induzione) e lavoriamo con macchine a controllo numerico. Controllare direttamente i processi ci permette di intervenire con più flessibilità quando serve una soluzione specifica.</p>
+          </div>
+          <div class="counters">
+            <div class="counter"><span>Anni di esperienza</span><b data-to="20" data-suffix="+">20+</b></div>
+            <div class="counter"><span>Applicazioni</span><b data-to="6">6</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prod" aria-labelledby="prod-t">
+    <div class="wrap">
+      <h2 id="prod-t" class="srt">Una produzione progettata sulle esigenze del cliente</h2>
+      <div class="pc-card" id="pc">
+        <article class="pc-slide on">
+          <div class="pc-txt"><span class="n">[01]</span><h3>Produzione interna e lavorazioni CNC</h3><p>Seguiamo direttamente le principali fasi di lavorazione: taglio, tornitura, foratura, fresatura, rettifica, stozzatura, indurimento superficiale, saldatura, frizionatura e induzione. L’impiego di macchine CNC ci permette di gestire i processi con attenzione e di intervenire quando sono richieste configurazioni specifiche.</p></div>
+          <div class="pc-pic"><img src="img/fab-tornitura.jpg" alt="Tornitura CNC nello stabilimento F.G.S. Drill" loading="lazy"></div>
+        </article>
+        <article class="pc-slide">
+          <div class="pc-txt"><span class="n">[02]</span><h3>Competenza tecnica</h3><p>Oltre vent’anni di esperienza nel settore della perforazione e un team specializzato permettono di affrontare esigenze tecniche differenti, dalla produzione al supporto post-vendita.</p></div>
+          <div class="pc-pic"><img src="img/team-fgs-drill-al-monitor.webp" alt="Tecnici F.G.S. Drill al pannello di una macchina CNC" loading="lazy"></div>
+        </article>
+        <article class="pc-slide">
+          <div class="pc-txt"><span class="n">[03]</span><h3>Qualità certificata</h3><p>Un sistema di gestione per la qualità certificato ISO 9001:2015 e un sistema di gestione ambientale certificato ISO 14001:2015.</p></div>
+          <div class="pc-pic"><img src="img/fab-filetto.jpg" alt="Lavorazione di un filetto" loading="lazy"></div>
+        </article>
+        <article class="pc-slide">
+          <div class="pc-txt"><span class="n">[04]</span><h3>Lavorazioni su misura</h3><p>Componenti e attrezzature realizzati a partire da un disegno, da un campione o dalle specifiche tecniche del cliente.</p></div>
+          <div class="pc-pic"><img src="img/fab-fresatura.jpg" alt="Fresatura di un componente" loading="lazy"></div>
+        </article>
+      </div>
+      <div class="pc-bars" role="tablist" aria-label="Scegli la slide">
+        <button type="button" class="on" role="tab" aria-selected="true" aria-label="Produzione interna e lavorazioni CNC"><i></i><span>Produzione interna e lavorazioni CNC</span></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="Competenza tecnica"><i></i><span>Competenza tecnica</span></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="Qualità certificata"><i></i><span>Qualità certificata</span></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="Lavorazioni su misura"><i></i><span>Lavorazioni su misura</span></button>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="vals dark" aria-labelledby="vals-t">
+    <div class="wrap">
+      <h2 id="vals-t" class="srt" data-theme="dark">I valori che ci guidano</h2>
+      <div class="vh" id="vh">
+        <div class="vh-wrapper">
+          <div class="vh-ticks vh-ticks-left" aria-hidden="true"></div>
+          <div class="vh-words">
+            <div class="vh-item is-active"><h3 class="vh-word">Centralità</h3><p class="vh-text">Partiamo dalle esigenze operative dei nostri clienti per sviluppare soluzioni specifiche, e restiamo a disposizione anche dopo la vendita.</p></div>
+            <div class="vh-item"><h3 class="vh-word">Qualità</h3><p class="vh-text">Selezioniamo le materie prime e lavoriamo secondo un sistema di gestione per la qualità certificato ISO 9001:2015.</p></div>
+            <div class="vh-item"><h3 class="vh-word">Affidabilità</h3><p class="vh-text">Il controllo diretto dei processi e l’organizzazione della produzione ci permettono di lavorare con attenzione su tempi, qualità e continuità delle commesse.</p></div>
+            <div class="vh-item"><h3 class="vh-word">Innovazione</h3><p class="vh-text">Investiamo nell’evoluzione di processi, tecnologie e prodotti per rispondere a un settore che cambia.</p></div>
+            <div class="vh-item"><h3 class="vh-word">Responsabilità</h3><p class="vh-text">Operiamo con attenzione verso le persone e l’ambiente: lo stabilimento ha un sistema di gestione ambientale certificato ISO 14001:2015 e un impianto fotovoltaico che copre circa l’80% del fabbisogno energetico.</p></div>
+          </div>
+          <div class="vh-ticks vh-ticks-right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team" aria-labelledby="team-t">
+    <div class="wrap">
+      <div class="team-head">
+        <h2 id="team-t" class="srt">Le persone dietro ogni componente</h2>
+        <div class="team-txt">
+          <p>Produzione, logistica, amministrazione e supporto al cliente collaborano nelle diverse fasi del lavoro. Scopri le persone che compongono il team F.G.S. Drill.</p>
+          <a class="link" href="https://fgsdrill.nb4dev.it/team-fgs-drill/">Conosci il team</a>
+        </div>
+      </div>
+      <div class="team-pic image-reveal"><img src="img/team-fgs-drill-in-posa.webp" alt="Il team F.G.S. Drill nello stabilimento" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="cta dark">
+    <div class="wrap">
+      <h2 class="lines">Raccontaci il tuo prossimo progetto di perforazione</h2>
+      <a class="btn btn-w rv" href="https://fgsdrill.nb4dev.it/richiesta-preventivo/">Richiedi preventivo</a>
+    </div>
+  </section>
+
+</main>
+<script src="assets/site.js?v=c5"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+<script src="assets/motion.js?v=2"></script>
+<script>
+(() => {
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Carosello "Una produzione progettata…" (dalco.ch): dissolvenza ogni 6s, barre cliccabili, parte quando è visibile
+  (() => {
+    const card = document.getElementById("pc");
+    const slides = [...card.querySelectorAll(".pc-slide")], bars = [...document.querySelectorAll(".pc-bars button")], wrap = bars[0].parentElement;
+    let i = 0;
+    const go = n => {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle("on", k === i));
+      bars.forEach((b, k) => { b.classList.remove("on"); b.classList.toggle("done", k < i); b.setAttribute("aria-selected", k === i); });
+      void bars[i].offsetWidth; bars[i].classList.add(still ? "done" : "on");
+    };
+    bars.forEach((b, k) => { b.addEventListener("click", () => go(k)); b.querySelector("i").addEventListener("animationend", () => go(i + 1)); });
+    if (still) return go(0);
+    wrap.classList.add("paused");
+    new IntersectionObserver(([e]) => wrap.classList.toggle("paused", !e.isIntersecting), { threshold: .35 }).observe(card);
+    card.addEventListener("mouseenter", () => wrap.classList.add("paused"));
+    card.addEventListener("mouseleave", () => wrap.classList.remove("paused"));
+  })();
+
+  // Contatori (20+ anni, 6 applicazioni): contano quando entrano in vista, come il widget Elementor del sito
+  document.querySelectorAll(".counter b").forEach(b => {
+    if (still) return;
+    const to = +b.dataset.to, suf = b.dataset.suffix || "";
+    b.textContent = "0" + suf;
+    new IntersectionObserver(([e], o) => {
+      if (!e.isIntersecting) return; o.disconnect();
+      const t0 = performance.now(), d = 2000;
+      const tick = t => { const p = Math.min(1, (t - t0) / d); b.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + suf; if (p < 1) requestAnimationFrame(tick); };
+      requestAnimationFrame(tick);
+    }, { threshold: .6 }).observe(b);
+  });
+
+  if (!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Titoli che si colorano parola per parola (scroll-reveal-text del sito)
+  document.querySelectorAll(".srt").forEach(el => {
+    el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="word">${w}</span>`).join(" ");
+    const to = el.dataset.theme === "dark" ? "#ffffff" : "#1a1a1a";
+    if (still) return gsap.set(el.querySelectorAll(".word"), { color: to });
+    gsap.to(el.querySelectorAll(".word"), { color: to, stagger: .05, scrollTrigger: { trigger: el, start: "top 80%", end: "top 20%", scrub: true } });
+  });
+
+  // Foto che si apre dal basso (image-reveal del sito)
+  document.querySelectorAll(".image-reveal").forEach(el => {
+    if (still) return;
+    gsap.fromTo(el, { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut", scrollTrigger: { trigger: el, start: "top 80%", toggleActions: "play none none reverse" } });
+  });
+
+  // Valori: le parole si accendono allo scroll, i righelli seguono la posizione (widget fgs-values-highlight del sito)
+  (() => {
+    const root = document.getElementById("vh"), list = root.querySelector(".vh-words");
+    const items = [...root.querySelectorAll(".vh-item")], sides = [...root.querySelectorAll(".vh-ticks")];
+    const SIZES = ["is-xxl", "is-xl", "is-l", "is-m"];
+    let active = 0, center = -1, progress = 0;
+    const splitLines = p => {
+      if (!p.dataset.text) p.dataset.text = p.textContent.trim();
+      p.textContent = "";
+      const spans = p.dataset.text.split(/\s+/).map(w => { const s = document.createElement("span"); s.textContent = w; p.append(s, " "); return s; });
+      const lines = []; let top = null;
+      spans.forEach(s => { if (s.offsetTop !== top) { lines.push([]); top = s.offsetTop; } lines[lines.length - 1].push(s.textContent); });
+      p.textContent = "";
+      lines.forEach(ws => { const l = document.createElement("span"), inn = document.createElement("span"); l.className = "vh-line"; inn.className = "vh-line-in"; inn.textContent = ws.join(" "); l.append(inn); p.append(l); });
+    };
+    const buildTicks = () => {
+      const count = Math.max(10, Math.round((list.offsetHeight + 8) / 9));
+      sides.forEach(side => { if (side.children.length === count) return; side.textContent = ""; for (let k = 0; k < count; k++) { const t = document.createElement("div"); t.className = "vh-tick"; side.append(t); } });
+      center = -1;
+    };
+    const paintTicks = () => {
+      const count = sides[0].children.length, c = Math.round(progress * (count - 1));
+      if (c === center) return; center = c;
+      sides.forEach(side => [...side.children].forEach((t, k) => { const d = Math.abs(k - c); t.className = "vh-tick" + (d < SIZES.length ? " " + SIZES[d] : ""); }));
+    };
+    const setActive = n => {
+      if (n === active) return; active = n;
+      items.forEach((it, k) => it.classList.toggle("is-active", k === n));
+      const lines = items[n].querySelectorAll(".vh-line-in");
+      if (lines.length) gsap.fromTo(lines, { yPercent: 100 }, { yPercent: 0, duration: .6, ease: "power3.out", stagger: .06, overwrite: true });
+    };
+    root.querySelectorAll(".vh-text").forEach(splitLines);
+    buildTicks();
+    gsap.matchMedia().add("(min-width: 1025px)", () => {
+      const st = ScrollTrigger.create({
+        trigger: list, start: "top center", end: "bottom center",
+        onUpdate: self => { progress = self.progress; paintTicks(); setActive(Math.round(progress * (items.length - 1))); },
+        onRefresh: self => { buildTicks(); progress = self.progress; paintTicks(); }
+      });
+      progress = st.progress; paintTicks(); setActive(Math.round(progress * (items.length - 1)));
+    });
+    let lastW = innerWidth;
+    addEventListener("resize", () => { if (innerWidth === lastW) return; lastW = innerWidth; root.querySelectorAll(".vh-text").forEach(splitLines); });
+  })();
+})();
+</script>
+</body>
+</html>

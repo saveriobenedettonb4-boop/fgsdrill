@@ -79,12 +79,6 @@
       gsap.fromTo(b, { xPercent: 0 }, { xPercent: 8, ease: "none", scrollTrigger: st });
     });
 
-    // Bottoni calamita (solo mouse)
-    $("main .btn").forEach(btn => {
-      const x = gsap.quickTo(btn, "x", { duration: .5, ease: "power3.out" }), y = gsap.quickTo(btn, "y", { duration: .5, ease: "power3.out" });
-      btn.addEventListener("pointermove", e => { const r = btn.getBoundingClientRect(); x((e.clientX - r.left - r.width / 2) * .25); y((e.clientY - r.top - r.height / 2) * .35); });
-      btn.addEventListener("pointerleave", () => { x(0); y(0); });
-    });
   });
 
   addEventListener("load", () => ScrollTrigger.refresh());

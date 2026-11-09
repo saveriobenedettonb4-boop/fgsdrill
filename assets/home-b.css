@@ -1,6 +1,6 @@
 /* Home nuova F.G.S. Drill: una sola scena che continua. Un font, un peso nei titoli, un accento, un solo angolo (lo smusso del bottone). */
 :root {
-  --font: "Google Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font: "Host Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --head: 64px;
   --gap: 10px;
   --gut: max(20px, 3.4vw);

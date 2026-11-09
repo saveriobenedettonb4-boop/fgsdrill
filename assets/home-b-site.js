@@ -21,13 +21,13 @@ const catRow = ([n, a, b, note, slug]) => `<li><a href="${BASE}${slug}/"><b>${n}
 
 const MENU = [
   ["Applicazioni", `${SITE}/applicazioni/`],
-  ["Soluzioni su misura", `${SITE}/soluzioni-su-misura-per-la-perforazione/`],
+  ["Soluzioni su misura", "soluzioni-su-misura.html", "su-misura"],
 ];
 const AZIENDA = [
-  ["Chi siamo", "chi-siamo.html", "chi-siamo-b"],
+  ["Chi siamo", "chi-siamo.html"],
   ["Team", `${SITE}/team-fgs-drill/`],
   ["Certificazioni", `${SITE}/certificazioni/`],
-  ["Sostenibilità", `${SITE}/sostenibilita/`],
+  ["Sostenibilità", "sostenibilita.html", "sostenibilita"],
   ["Presenza internazionale", `${SITE}/presenza-internazionale/`],
 ];
 const AFTER = [["News", `${SITE}/news/`], ["Contatti", `${SITE}/contatti/`]];
@@ -37,21 +37,21 @@ const MEGA = `<div class="mm">
       <button class="mm-b" type="button" aria-expanded="false" aria-controls="mega">Prodotti</button>
       <div class="mm-panel" id="mega">
         <ul class="mm-fams">${CAT.map((f, i) => `<li class="mm-f${i ? "" : " on"}"><a href="${BASE}">${f.n}</a><ul class="mm-l" style="--n:${f.rows.length}">${f.rows.map(catRow).join("")}</ul></li>`).join("")}</ul>
-        <div class="mm-bar light"><p>17 prodotti, Ø da 42 a 323 mm</p><a class="link" href="${SITE}/soluzioni-su-misura-per-la-perforazione/">Richiedi un pezzo speciale</a><a class="btn" href="${BASE}">Vedi tutti i prodotti</a></div>
+        <div class="mm-bar light"><p>17 prodotti, Ø da 42 a 323 mm</p><a class="link" href="soluzioni-su-misura.html">Richiedi un pezzo speciale</a><a class="btn" href="${BASE}">Vedi tutti i prodotti</a></div>
       </div>
     </div>`;
 
 document.body.insertAdjacentHTML("afterbegin", `
 <div class="proto"><div class="wrap">
   <span><b>Prototipo</b> · F.G.S. Drill</span>
-  <nav aria-label="Pagine del prototipo"><a href="../index.html">Indice</a><a href="../home-a.html"${cur("home-a")}>Home(A)</a><a href="index.html"${cur("home-b")}>Home(B)</a><a href="../chi-siamo-a.html"${cur("chi-siamo-a")}>Chi siamo(A)</a><a href="chi-siamo.html"${cur("chi-siamo-b")}>Chi siamo(B)</a></nav>
+  <nav aria-label="Pagine del prototipo"><a href="index.html">Indice</a><a href="home-a.html"${cur("home-a")}>Home(A)</a><a href="home-b.html"${cur("home-b")}>Home(B)</a><a href="chi-siamo.html">Chi siamo</a><a href="sostenibilita.html">Sostenibilità</a><a href="soluzioni-su-misura.html">Su misura</a></nav>
 </div></div>
 <header class="site"><div class="wrap">
-  <a class="logo" href="index.html" aria-label="F.G.S. Drill, home"><img src="img/logo.svg" alt="F.G.S. Drill" width="300" height="209"></a>
+  <a class="logo" href="home-b.html" aria-label="F.G.S. Drill, home"><img src="img/logo.svg" alt="F.G.S. Drill" width="300" height="209"></a>
   <nav class="main" aria-label="Menu principale">
     ${MEGA}
     ${MENU.map(a).join("")}
-    <div class="dd"><button type="button" aria-haspopup="true"${PAGE === "chi-siamo-b" ? ' aria-current="page"' : ""}>Azienda</button><ul>${AZIENDA.map(i => `<li>${a(i)}</li>`).join("")}</ul></div>
+    <div class="dd"><button type="button" aria-haspopup="true">Azienda</button><ul>${AZIENDA.map(i => `<li>${a(i)}</li>`).join("")}</ul></div>
     ${AFTER.map(a).join("")}
   </nav>
   <a class="btn" href="${PREVENTIVO}">Richiedi preventivo</a>
@@ -61,7 +61,7 @@ document.body.insertAdjacentHTML("afterbegin", `
   <a href="${BASE}">Prodotti</a>
   <div class="sub">${CAT.map(f => `<details><summary>${f.n}</summary>${f.rows.map(r => `<a href="${BASE}${r[4]}/">${r[0]}</a>`).join("")}</details>`).join("")}</div>
   ${MENU.map(a).join("")}
-  <a href="chi-siamo.html"${cur("chi-siamo-b")}>Azienda</a>
+  <a href="chi-siamo.html">Azienda</a>
   <div class="sub">${AZIENDA.slice(1).map(a).join("")}</div>
   ${AFTER.map(a).join("")}
   <a class="btn btn-y" href="${PREVENTIVO}">Richiedi preventivo</a>
@@ -72,7 +72,7 @@ document.body.insertAdjacentHTML("beforeend", `
   <div class="co"><p><b>F.G.S. Drill S.r.l.</b>Via dei Gerani, 36<br>Modugno (BA)</p><p>T. <a href="tel:+390805311111">+39 080 531 1111</a><br><a href="mailto:info@fgsdrill.it">info@fgsdrill.it</a></p></div>
   <div><h4>Prodotti</h4><ul>${CAT.map(f => `<li><a href="${BASE}">${f.n}</a></li>`).join("")}</ul></div>
   <div><h4>Applicazioni</h4><ul>${[["Ricerca idrica", "ricerca-idrica"], ["Geotermia", "geotermia"], ["Consolidamenti", "consolidamenti"], ["Cave e miniere", "cave-e-miniere"], ["Ingegneria civile", "ingegneria-civile"], ["Geognostica", "geognostica"]].map(([t, s]) => `<li><a href="${SITE}/applicazioni/${s}/">${t}</a></li>`).join("")}</ul></div>
-  <div><h4>Azienda</h4><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="${SITE}/team-fgs-drill/">Team</a></li><li><a href="${SITE}/certificazioni/">Certificazioni</a></li><li><a href="${SITE}/sostenibilita/">Sostenibilità</a></li><li><a href="${SITE}/presenza-internazionale/">Nel mondo</a></li></ul></div>
+  <div><h4>Azienda</h4><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="${SITE}/team-fgs-drill/">Team</a></li><li><a href="${SITE}/certificazioni/">Certificazioni</a></li><li><a href="sostenibilita.html">Sostenibilità</a></li><li><a href="${SITE}/presenza-internazionale/">Nel mondo</a></li></ul></div>
   <div><h4>Link utili</h4><ul><li><a href="${SITE}/contatti/">Contatti</a></li><li><a href="${SITE}/news/">News</a></li><li><a href="${SITE}/lavora-con-noi/">Lavora con noi</a></li></ul></div>
   <div class="fbar"><span>Privacy policy – Cookie policy</span><a class="fb" href="https://www.facebook.com/profile.php?id=100063616750282" target="_blank" rel="noopener" aria-label="F.G.S. Drill su Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg></a></div>
   <div class="legal"><span>© 2026 F.G.S. Drill S.r.l. – Tutti i diritti riservati.<br>Sede legale: Via dei Gerani, 36 – Modugno (BA)<br>P. IVA 06047400723 | REA: 458839<br>Capitale sociale: € 500.000,00<br>PEC: collisimona@postecert.it</span><span>Made in Never Before Italia</span></div>

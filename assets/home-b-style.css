@@ -1,5 +1,5 @@
 /* Prototipo F.G.S. Drill: home e chi siamo.
-   Identità del sito attuale (Space Grotesk, nero/bianco, giallo #EEC30D, angoli tagliati, freccia FGS)
+   Identità del sito attuale (Host Grotesk, nero/bianco, giallo #EEC30D, angoli tagliati, freccia FGS)
    con le correzioni della cliente: testi più grandi, parole chiave in corsivo e colore, infografiche. */
 :root {
   --bg: #ffffff;
@@ -12,7 +12,7 @@
   --muted: #5f5f5c;
   --muted-dark: #b9b8b2;
   --yellow: #eec30d;
-  --font: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font: "Host Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --wrap: 1360px;
   --gut: max(20px, 3.5vw);
   --head: 84px;

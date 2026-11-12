@@ -1,4 +1,4 @@
-// Header, menu mobile, footer e barra del prototipo condivisi tra le pagine.
+// Header, menu mobile e footer condivisi tra le pagine.
 // Le pagine non ancora prototipate puntano al sito di sviluppo.
 const SITE = "https://fgsdrill.nb4dev.it";
 const PAGE = document.body.dataset.page;
@@ -27,10 +27,10 @@ const CATS = [
   ["Raccorderia", "raccorderia", [["Raccordi", "raccordi", "disegno-raccordi-768x139.png"], ["Valvole di non ritorno", "valvole-di-non-ritorno", "disegno-valvole-non-ritorno.png"]]],
   ["Accessori di perforazione", "accessori-di-perforazione", [["Testine di sollevamento", "testine-di-sollevamento", "disegno-testine-sollevamento.png"], ["Chiavi di smontaggio", "chiavi-di-smontaggio", "disegno-chiavi-smontaggio.png"], ["Pescanti maschio e femmina", "pescanti", "disegno-pescanti-768x188.png"]]],
 ];
-const MEGA = `<div class="dd mega"><button type="button" aria-haspopup="true">Prodotti</button>
+const MEGA = `<div class="dd mega"><button type="button" aria-haspopup="true"${cur("prodotti")}>Prodotti</button>
   <div class="mg"><div class="mg-in">
-    <ul class="mg-cats">${CATS.map(([t, s], i) => `<li${i ? "" : ' class="on"'}><a href="${SITE}/prodotti/#${s}">${t}</a></li>`).join("")}</ul>
-    <div class="mg-panels">${CATS.map(([, , items], i) => `<ul class="mg-items"${i ? " hidden" : ""}>${items.map(([t, s, img]) => `<li><a href="${SITE}/prodotti/${s}/"><img src="${P}${img}" alt="" loading="lazy"><span>${t}</span></a></li>`).join("")}</ul>`).join("")}</div>
+    <ul class="mg-cats">${CATS.map(([t, s], i) => `<li${i ? "" : ' class="on"'}><a href="${s}.html">${t}</a></li>`).join("")}</ul>
+    <div class="mg-panels">${CATS.map(([, , items], i) => `<ul class="mg-items"${i ? " hidden" : ""}>${items.map(([t, s, img]) => `<li><a href="${s === "aste-forgiate-a-frizione" ? "aste-forgiate-a-frizione.html" : `${SITE}/prodotti/${s}/`}"><img src="${P}${img}" alt="" loading="lazy"><span>${t}</span></a></li>`).join("")}</ul>`).join("")}</div>
   </div></div></div>`;
 // Mega menu Azienda (come lovece.it): una frase fissa e le voci a sinistra, una sola foto a destra; nulla cambia all'hover
 const MEGA_AZ = `<div class="dd mega"><button type="button" aria-haspopup="true"${PAGE === "chi-siamo" || PAGE === "sostenibilita" ? ' aria-current="page"' : ""}>Azienda</button>
@@ -42,34 +42,30 @@ const MEGA_AZ = `<div class="dd mega"><button type="button" aria-haspopup="true"
 const a = ([t, h, p]) => `<a href="${h}"${cur(p)}>${t}</a>`;
 
 document.body.insertAdjacentHTML("afterbegin", `
-<div class="proto"><div class="wrap">
-  <span><b>Prototipo</b> · F.G.S. Drill</span>
-  <nav aria-label="Pagine del prototipo"><a href="index.html">Indice</a><a href="home-a.html"${cur("home-a")}>Home(A)</a><a href="home-b.html"${cur("home-b")}>Home(B)</a><a href="chi-siamo.html"${cur("chi-siamo")}>Chi siamo</a><a href="sostenibilita.html"${cur("sostenibilita")}>Sostenibilità</a><a href="soluzioni-su-misura.html"${cur("su-misura")}>Su misura</a></nav>
-</div></div>
 <header class="site"><div class="wrap">
-  <a class="logo" href="home-a.html" aria-label="F.G.S. Drill, home"><img src="img/logo.svg" alt="F.G.S. Drill" width="300" height="209"></a>
+  <a class="logo" href="index.html" aria-label="F.G.S. Drill, home"><img src="img/logo.svg" alt="F.G.S. Drill" width="300" height="209"></a>
   <nav class="main" aria-label="Menu principale">
     ${MEGA}
     ${MENU.map(a).join("")}
     ${MEGA_AZ}
     ${AFTER.map(a).join("")}
   </nav>
-  <a class="btn" href="${PREVENTIVO}">Richiedi preventivo</a>
+  <a class="btn btn-k" href="${PREVENTIVO}">Richiedi preventivo</a>
   <button class="burger" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="mnav"><span></span></button>
 </div></header>
 <nav class="mnav" id="mnav" aria-label="Menu">
-  <a href="${SITE}/prodotti/">Prodotti</a>
+  <a href="prodotti.html"${cur("prodotti")}>Prodotti</a>
   ${MENU.map(a).join("")}
   <a href="chi-siamo.html"${cur("chi-siamo")}>Azienda</a>
   <div class="sub">${AZIENDA.slice(1).map(a).join("")}</div>
   ${AFTER.map(a).join("")}
-  <a class="btn btn-y" href="${PREVENTIVO}">Richiedi preventivo</a>
+  <a class="btn btn-k" href="${PREVENTIVO}">Richiedi preventivo</a>
 </nav>`);
 
 document.body.insertAdjacentHTML("beforeend", `
 <footer class="site"><div class="wrap">
   <div class="co"><p><b>F.G.S. Drill S.r.l.</b>Via dei Gerani, 36<br>Modugno (BA)</p><p>T. <a href="tel:+390805311111">+39 080 531 1111</a><br><a href="mailto:info@fgsdrill.it">info@fgsdrill.it</a></p></div>
-  <div><h4>Prodotti</h4><ul>${["Aste di perforazione", "Astoni e stabilizzatori", "Ammortizzatori", "Tubi di manovra", "Raccorderia", "Accessori di perforazione"].map(t => `<li><a href="${SITE}/prodotti/">${t}</a></li>`).join("")}</ul></div>
+  <div><h4>Prodotti</h4><ul>${CATS.map(([t, s]) => `<li><a href="${s}.html">${t}</a></li>`).join("")}</ul></div>
   <div><h4>Applicazioni</h4><ul>${[["Ricerca idrica", "ricerca-idrica"], ["Geotermia", "geotermia"], ["Consolidamenti", "consolidamenti"], ["Cave e miniere", "cave-e-miniere"], ["Ingegneria civile", "ingegneria-civile"], ["Geognostica", "geognostica"]].map(([t, s]) => `<li><a href="${SITE}/applicazioni/${s}/">${t}</a></li>`).join("")}</ul></div>
   <div><h4>Azienda</h4><ul><li><a href="chi-siamo.html">Chi siamo</a></li><li><a href="${SITE}/team-fgs-drill/">Team</a></li><li><a href="${SITE}/certificazioni/">Certificazioni</a></li><li><a href="sostenibilita.html">Sostenibilità</a></li><li><a href="${SITE}/presenza-internazionale/">Nel mondo</a></li></ul></div>
   <div><h4>Link utili</h4><ul><li><a href="${SITE}/contatti/">Contatti</a></li><li><a href="${SITE}/news/">News</a></li><li><a href="${SITE}/lavora-con-noi/">Lavora con noi</a></li></ul></div>

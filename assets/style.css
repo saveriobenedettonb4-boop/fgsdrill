@@ -61,6 +61,10 @@ section.pad { padding-block: clamp(80px, 10vw, 150px); }
 .btn-y { --c: #e4e3df; }
 .btn-y:hover { --c: #d6d5d0; }
 .btn-w { --c: #e4e3df; }
+/* Richiedi preventivo: sempre nero; sui fondi scuri un filo grigio lo stacca dal fondo */
+.btn-k { --c: var(--ink); --t: #fff; }
+.btn-k:hover { --c: #2b2b2a; }
+.dark .btn-k, .close-r .btn-k { box-shadow: inset 0 0 0 1px #4a4a47; }
 .btn-line { background: transparent; color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .55); }
 .btn-line:hover { background: rgba(255, 255, 255, .12); color: #fff; }
 .btns { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -69,14 +73,6 @@ section.pad { padding-block: clamp(80px, 10vw, 150px); }
 .link:hover { color: var(--yellow); }
 .light .link:hover { color: var(--ink); text-decoration: underline var(--yellow) 2px; text-underline-offset: 6px; }
 
-/* Barra del prototipo */
-.proto { position: relative; z-index: 60; background: #1d1d1c; color: #cfcec8; font-size: 13px; }
-.proto .wrap { display: flex; gap: 8px 20px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding-block: 8px; }
-.proto b { color: var(--yellow); font-weight: 600; }
-.proto nav { display: flex; flex-wrap: wrap; gap: 6px; }
-.proto nav a { white-space: nowrap; }
-.proto nav a { text-decoration: none; padding: 3px 10px; border: 1px solid #3a3a38; }
-.proto nav a[aria-current] { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
 
 /* Header: trasparente sopra la hero, bianco allo scroll (come il sito) */
 header.site { position: sticky; top: 0; z-index: 50; height: var(--head); color: var(--ink); background: #fff; border-bottom: 1px solid var(--line); transition: background .3s ease, color .3s ease, border-color .3s ease; }
@@ -87,7 +83,7 @@ header.site .wrap { height: 100%; display: flex; align-items: center; gap: 32px;
 header.site .logo img { height: 52px; width: auto; }
 nav.main { display: flex; align-items: center; gap: 30px; margin-left: auto; font-size: 15.5px; font-weight: 500; }
 nav.main > a, nav.main .dd > button { text-decoration: none; padding-block: 8px; background: none; border: 0; color: inherit; font: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
-nav.main > a:hover, nav.main .dd > button:hover, nav.main a[aria-current] { box-shadow: inset 0 -2px 0 var(--yellow); }
+nav.main > a:hover, nav.main .dd > button:hover, nav.main a[aria-current], nav.main .dd > button[aria-current] { box-shadow: inset 0 -2px 0 var(--yellow); }
 nav.main .dd { position: relative; }
 nav.main .dd > button::after { content: ""; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-3px) rotate(45deg); }
 nav.main .dd ul { position: absolute; top: 100%; left: -18px; min-width: 230px; background: #fff; color: var(--ink); padding: 10px 0; border: 1px solid var(--line); box-shadow: 0 12px 30px rgba(0, 0, 0, .08); opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease, visibility .2s; }
@@ -97,7 +93,7 @@ nav.main .dd ul a:hover, nav.main .dd ul a[aria-current] { background: var(--pap
 /* Mega menu Prodotti: categorie a sinistra, prodotti a destra */
 nav.main .dd.mega { position: static; }
 header.site:has(.mega:hover), header.site:has(.mega:focus-within) { background: #fff; color: var(--ink); border-color: var(--line); }
-body.over:not(.scrolled):not(.menu-open) header.site:has(.mega:hover) .btn { --c: #e4e3df; --t: var(--ink); }
+body.over:not(.scrolled):not(.menu-open) header.site:has(.mega:hover) .btn:not(.btn-k) { --c: #e4e3df; --t: var(--ink); }
 nav.main .dd.mega .mg { position: absolute; top: 100%; left: 0; right: 0; background: #fff; color: var(--ink); border-bottom: 1px solid var(--line); box-shadow: 0 18px 30px rgba(0, 0, 0, .08); padding: 28px 0 36px; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease, visibility .2s; font-weight: 400; }
 nav.main .dd.mega .mg::before { content: ""; position: absolute; left: 0; right: 0; top: -26px; height: 26px; }
 nav.main .dd.mega:hover .mg, nav.main .dd.mega:focus-within .mg { opacity: 1; visibility: visible; transform: none; }
@@ -123,8 +119,8 @@ nav.main .dd.mega .mg .az ul.az-list a:hover::before, nav.main .dd.mega .mg .az 
 nav.main .dd.mega .mg .az .az-media { position: relative; min-height: 460px; border-radius: 8px; overflow: hidden; }
 nav.main .dd.mega .mg .az .az-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 header.site .btn { padding: 5px 5px 5px 16px; }
-body.over:not(.scrolled):not(.menu-open) header.site .btn { --c: #e4e3df; --t: var(--ink); }
-body.over:not(.scrolled):not(.menu-open) header.site .btn:hover { --c: #fff; }
+body.over:not(.scrolled):not(.menu-open) header.site .btn:not(.btn-k) { --c: #e4e3df; --t: var(--ink); }
+body.over:not(.scrolled):not(.menu-open) header.site .btn:not(.btn-k):hover { --c: #fff; }
 .burger { display: none; margin-left: auto; width: 48px; height: 48px; border: 0; background: none; color: inherit; cursor: pointer; position: relative; }
 .burger span, .burger::before, .burger::after { content: ""; position: absolute; left: 12px; right: 12px; height: 2px; background: currentColor; transition: transform .25s ease, opacity .2s ease; }
 .burger::before { top: 16px; } .burger span { top: 23px; } .burger::after { top: 30px; }

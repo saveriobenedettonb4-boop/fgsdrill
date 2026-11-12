@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Accessori di perforazione: la testina di sollevamento sale appesa al cavo (in giallo) -->
+  <style>
+    .y{stroke:#eec30d;stroke-width:3}
+    .f{stroke:#f3dd8a}
+    .u,.a{animation:u 3.4s ease-in-out infinite}
+    .a{animation-name:a}
+    @keyframes u{0%,10%,to{transform:translateY(5px)}45%,65%{transform:translateY(-5px)}}
+    @keyframes a{0%,8%{opacity:0;transform:translateY(8px)}30%,52%{opacity:1;transform:none}72%{opacity:0;transform:translateY(-6px)}72.01%,to{opacity:0;transform:translateY(8px)}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <g class="u">
+    <path class="y" d="M108,-20V18"/>
+    <rect x="88" y="20" width="40" height="62" rx="20"/>
+    <rect x="97" y="29" width="22" height="44" rx="11"/>
+    <path d="M96,78V92M120,78V92"/>
+    <rect x="78" y="92" width="60" height="22" rx="4"/>
+    <path d="M94,114V139Q94,142 97,142H119Q122,142 122,139V114M94,122L122,118M94,129L122,125M94,136L122,132"/>
+  </g>
+  <path class="f a" d="M158,98V68M152,75L158,68L164,75"/>
+</svg>

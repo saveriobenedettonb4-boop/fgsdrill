@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ammortizzatori: il colpo arriva da destra, la molla lo assorbe e si assesta -->
+  <style>
+    .y{stroke:#eec30d;stroke-width:3}
+    .f{stroke:#f3dd8a}
+    .p,.s,.a{animation:p 3.2s ease-in-out infinite}
+    .s{animation-name:s;transform-origin:54px 80px}
+    .a{animation-name:a}
+    /* la molla è larga 56: scala = (56 + spostamento del pistone) / 56, stessi tempi */
+    @keyframes p{0%,66%,to{transform:none}12%{transform:translateX(-18px)}30%{transform:translateX(3px)}44%{transform:translateX(-6px)}56%{transform:translateX(1px)}}
+    /* lo spessore sale di quanto la scala schiaccia (3 / scala): il tratto della molla resta uguale */
+    @keyframes s{0%,66%,to{transform:none;stroke-width:3}12%{transform:scaleX(.679);stroke-width:4.42}30%{transform:scaleX(1.054);stroke-width:2.85}44%{transform:scaleX(.893);stroke-width:3.36}56%{transform:scaleX(1.018);stroke-width:2.95}}
+    @keyframes a{0%,6%{opacity:1;transform:none}16%,80%{opacity:0;transform:translateX(8px)}to{opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <path d="M162,73V58Q162,52 156,52H52Q46,52 46,58V102Q46,108 52,108H156Q162,108 162,102V87"/>
+  <path d="M46,68H28V92H46M34,68L31,92M41,68L38,92"/>
+  <polyline class="y s" points="54,80 58,62 66,98 74,62 82,98 90,62 98,98 106,62 110,80"/>
+  <path class="p" d="M112,60V100M112,73H194V87H112M186,73L183,87M191,73L188,87"/>
+  <path class="f a" d="M222,80H204M210,74L204,80L210,86"/>
+</svg>

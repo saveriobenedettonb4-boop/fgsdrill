@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Tubi di manovra: il diametro cresce, la quota Ø lo segue -->
+  <!-- Si muovono raggi e posizioni, non una scala sul gruppo: la scala assottiglierebbe i tratti orizzontali -->
+  <style>
+    .y{stroke:#eec30d;stroke-width:3}
+    .o,.i,.t,.b,.v{animation:o 2.8s cubic-bezier(.65,0,.35,1) infinite alternate}
+    .i{animation-name:i}.t{animation-name:t}.b{animation-name:b}
+    .v{animation-name:v;transform-origin:0 80px}
+    @keyframes o{0%,14%{ry:21px}86%,to{ry:36px}}
+    @keyframes i{0%,14%{ry:14px}86%,to{ry:29px}}
+    @keyframes t{0%,14%{transform:translateY(15px)}86%,to{transform:none}}
+    @keyframes b{0%,14%{transform:translateY(-15px)}86%,to{transform:none}}
+    @keyframes v{0%,14%{transform:scaleY(.583)}86%,to{transform:none}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <!-- delle ellissi di fondo e di filetto si vede solo la metà sinistra -->
+  <clipPath id="a"><rect width="65" height="160"/></clipPath>
+  <clipPath id="b"><rect width="163" height="160"/></clipPath>
+  <clipPath id="c"><rect width="172" height="160"/></clipPath>
+  <clipPath id="d"><rect width="181" height="160"/></clipPath>
+  <g class="v"><path class="y" d="M31,44V116"/><path d="M43,44V116"/></g>
+  <path class="t" d="M37,44H49M65,44H197"/>
+  <path class="b" d="M37,116H49M65,116H197"/>
+  <g clip-path="url(#a)"><ellipse class="o" cx="65" cy="80" rx="13" ry="36"/></g>
+  <g clip-path="url(#b)"><ellipse class="o" cx="163" cy="80" rx="13" ry="36"/></g>
+  <g clip-path="url(#c)"><ellipse class="o" cx="172" cy="80" rx="13" ry="36"/></g>
+  <g clip-path="url(#d)"><ellipse class="o" cx="181" cy="80" rx="13" ry="36"/></g>
+  <ellipse class="o" cx="197" cy="80" rx="13" ry="36"/>
+  <ellipse class="i" cx="197" cy="80" rx="9" ry="29"/>
+</svg>

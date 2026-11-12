@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.css">
-<link rel="stylesheet" href="assets/style.css?v=c9">
+<link rel="stylesheet" href="assets/style.css?v=d3">
 <style>
   /* Container a tutta larghezza con 50px ai lati (header e footer compresi, così restano allineati) */
   @media (min-width: 768px) { :root { --wrap: none; --gut: 50px; } }
@@ -27,7 +27,7 @@
   .srt .word { color: inherit; }
 
   /* HERO */
-  .cs-hero { position: relative; min-height: max(620px, calc(100svh - 45px)); display: flex; align-items: flex-end; isolation: isolate; color: #fff; overflow: hidden; }
+  .cs-hero { position: relative; min-height: max(620px, 100svh); display: flex; align-items: flex-end; isolation: isolate; color: #fff; overflow: hidden; }
   .cs-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
   .cs-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(rgba(255, 255, 255, 0) 0%, #000 100%); opacity: .6; }
   .cs-hero::before { content: ""; position: absolute; inset: auto 0 0; height: 55%; z-index: -1; background: linear-gradient(to top, rgba(0, 0, 0, .45), transparent); }
@@ -142,7 +142,7 @@
   <section class="cs-hero dark" aria-labelledby="cs-t">
     <img src="img/interno-azienda-fgs-drill.webp" alt="" fetchpriority="high">
     <div class="wrap">
-      <nav class="crumb" aria-label="Percorso"><a href="home-a.html">Home</a> » Chi siamo</nav>
+      <nav class="crumb" aria-label="Percorso"><a href="index.html">Home</a> » Chi siamo</nav>
       <div class="cs-cols">
         <h1 id="cs-t" class="lines">F.G.S. Drill: esperienza e produzione per la perforazione</h1>
         <p class="cs-lead">Da oltre vent’anni progettiamo e produciamo aste e attrezzature per la perforazione. Conosciamo le esigenze operative di chi lavora sul campo e traduciamo le richieste tecniche in componenti destinati a diverse applicazioni</p>
@@ -235,12 +235,12 @@
   <section class="cta dark">
     <div class="wrap">
       <h2 class="lines">Raccontaci il tuo prossimo progetto di perforazione</h2>
-      <a class="btn btn-w rv" href="https://fgsdrill.nb4dev.it/richiesta-preventivo/">Richiedi preventivo</a>
+      <a class="btn btn-k rv" href="https://fgsdrill.nb4dev.it/richiesta-preventivo/">Richiedi preventivo</a>
     </div>
   </section>
 
 </main>
-<script src="assets/site.js?v=c5"></script>
+<script src="assets/site.js?v=d5"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>

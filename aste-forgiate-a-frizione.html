@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aste forgiate a frizione | F.G.S. Drill</title>
+<meta name="description" content="Aste forgiate a frizione da Ø42 a Ø152 mm, in 31 filettature e in lunghezze da 500 a 6000 mm.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.css">
+<link rel="stylesheet" href="assets/style.css?v=d3">
+<link rel="stylesheet" href="assets/catalogo.css?v=8">
+<style>
+  /* Scheda prodotto ricreata da fgsdrill.nb4dev.it/prodotti/aste-forgiate-a-frizione/ (stessi testi e dati),
+     con la grafica delle altre pagine: hero chiara come le categorie, card come il catalogo, modulo come Soluzioni su misura. */
+
+  /* HERO: testo a sinistra, foto del prodotto a destra */
+  .ph { padding-block: clamp(40px, 5vw, 72px) clamp(48px, 5vw, 72px); }
+  .ph .crumb { font-size: 13.6px; margin-bottom: 28px; color: var(--muted); }
+  .ph .crumb a { color: inherit; text-decoration: none; }
+  .ph .crumb a:hover { text-decoration: underline; }
+  .ph-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 50px; align-items: center; }
+  .ph .eyebrow a { color: inherit; text-decoration: none; }
+  .ph h1 { font-size: clamp(2.6rem, 4.6vw, 4.4rem); line-height: 1.06; letter-spacing: -.02em; max-width: 11em; }
+  .ph-pic { display: grid; place-items: center; aspect-ratio: 7 / 4; border-radius: 8px; background: var(--paper); overflow: hidden; }
+  .ph-pic img { width: 88%; height: auto; mix-blend-mode: multiply; }
+
+  /* DATI CON ICONA (come gaggiotti): icona in un cerchio, etichetta piccola, valore in maiuscolo */
+  .ft { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 28px; margin-top: 32px; }
+  .ft li { display: flex; align-items: center; gap: 16px; }
+  .ft svg { flex: none; width: 64px; height: 64px; padding: 16px; border-radius: 50%; background: var(--paper); fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+  .ft svg .y { stroke: var(--yellow); stroke-width: 2.2; }
+  .ft .t { display: block; font: 600 12px var(--font); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .ft .v { display: block; margin-top: 4px; font-size: 17px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; }
+  .ph-cta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 26px; padding-top: 32px; border-top: 1px solid var(--line); }
+  .ph-cta .btn { justify-content: space-between; }
+
+  /* INFO TECNICHE (scuro, come sul sito di sviluppo) */
+  .tt { background: var(--ink); color: #fff; }
+  .tt-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 50px; align-items: center; }
+  .tt-draw { padding: clamp(20px, 3vw, 36px); border-radius: 8px; background: #fff; }
+  .tt-draw img { width: 100%; max-width: 960px; margin-inline: auto; }
+  .tt-bar { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; margin-top: 40px; }
+  .tt-f { display: flex; flex-wrap: wrap; gap: 16px; }
+  .tt-f label { display: grid; gap: 8px; font: 500 13px var(--font); letter-spacing: .12em; text-transform: uppercase; color: #b9b8b2; }
+  .tt select, .tt input[type="search"] { min-width: 200px; padding: 12px 16px; border: 1px solid #3a3a38; border-radius: 8px; background: #1b1b1a; color: #fff; font: 400 16px/1.3 var(--font); }
+  .tt select:focus, .tt input[type="search"]:focus { outline: none; border-color: var(--yellow); }
+  .tt-n { font-size: 15px; color: #b9b8b2; }
+  .tbl { margin-top: 20px; overflow-x: auto; border: 1px solid var(--line-dark); border-radius: 8px; }
+  .tbl table { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+  .tbl th { padding: 14px 16px; text-align: left; font: 600 13px var(--font); letter-spacing: .06em; text-transform: uppercase; color: #b9b8b2; border-bottom: 1px solid var(--line-dark); white-space: nowrap; }
+  .tbl td { padding: 12px 16px; border-bottom: 1px solid var(--line-dark); white-space: nowrap; }
+  .tbl tr:last-child td { border-bottom: 0; }
+  .tech td:first-child { font-weight: 600; }
+  .tt-note { margin-top: 14px; font-size: 14px; color: #b9b8b2; }
+  .wt { margin-top: clamp(64px, 6vw, 96px); }
+  .wt h3 { font-size: clamp(1.6rem, 2.4vw, 2.2rem); letter-spacing: -.02em; }
+  .wt > p { margin-top: 8px; color: #cfcec8; }
+  .wt label { margin-top: 24px; }
+
+  /* APPLICAZIONI: i sei ambiti come pillole con foto tonda, a tutta larghezza (senza descrizioni) */
+  .apx { padding-block: clamp(56px, 6vw, 90px); }
+  .apx h2 { font-size: clamp(1.6rem, 2.4vw, 2.2rem); letter-spacing: -.02em; }
+  .a3 { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
+  .a3 a { display: flex; align-items: center; gap: 14px; min-width: 0; padding: 8px 18px 8px 8px; border-radius: 999px; background: var(--paper); color: var(--ink); font-size: 16px; font-weight: 500; line-height: 1.2; text-decoration: none; transition: background .2s ease; }
+  .a3 a:hover { background: #ecebe7; }
+  .a3 img { flex: none; width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
+
+  /* MODULO: giallo a sinistra, modulo sul nero a destra (come la chiusura di Sostenibilità) */
+  .close { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
+  .close-l { background: var(--yellow); color: var(--ink); padding: clamp(56px, 6vw, 90px) var(--gut); min-height: 520px; }
+  .close-l .eyebrow { color: var(--ink); }
+  .close-l .eyebrow::before { background: var(--ink); }
+  .close-l h2 { font-size: clamp(2.4rem, 4.2vw, 4.2rem); line-height: 1.05; letter-spacing: -.03em; max-width: 9em; }
+  .close-r { background: var(--ink); color: #fff; padding: clamp(56px, 6vw, 90px) var(--gut); }
+  .close-l p { max-width: 26em; margin-top: 28px; font-size: 19px; line-height: 1.55; color: var(--ink); }
+  .close-r > p { font-size: 19px; line-height: 1.55; color: #e4e3dd; max-width: 34em; }
+  .fm { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 720px; }
+  .fm .full { grid-column: 1 / -1; }
+  .fm input:not([type="checkbox"]), .fm textarea { width: 100%; padding: 17px 20px; border: 1px solid #3a3a38; border-radius: 8px; background: #1b1b1a; color: #fff; font: 400 17px/1.4 var(--font); transition: border-color .2s ease; }
+  .fm ::placeholder { color: #b9b8b2; opacity: 1; }
+  .fm textarea { min-height: 180px; resize: vertical; }
+  .fm input:focus, .fm textarea:focus { outline: none; border-color: var(--yellow); }
+  .fm .note { grid-column: 1 / -1; margin-top: 4px; font-size: 15px; color: #cfcec8; }
+  .fm .ok { grid-column: 1 / -1; display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.5; color: #cfcec8; }
+  .fm .ok input { width: 18px; height: 18px; flex: none; margin-top: 2px; accent-color: var(--yellow); }
+  .fm .ok a { color: #fff; text-decoration: underline var(--yellow) 2px; text-underline-offset: 4px; }
+  .fm .btn { grid-column: 1 / -1; justify-self: start; margin-top: 12px; }
+  .fm .sent { grid-column: 1 / -1; font-size: 15px; color: #cfcec8; }
+
+  .close-l p { max-width: 26em; margin-top: 28px; font-size: 19px; line-height: 1.55; color: var(--ink); }
+  .yn { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin: 0; padding: 16px 20px; border: 1px solid #3a3a38; border-radius: 8px; background: #1b1b1a; }
+  .yn legend { float: left; margin-right: auto; padding: 0; font-size: 17px; color: #fff; }
+  .yn label { display: inline-flex; align-items: center; gap: 10px; font-size: 16px; color: #fff; cursor: pointer; }
+  .yn input { width: 18px; height: 18px; margin: 0; accent-color: var(--yellow); cursor: pointer; }
+
+  /* PRODOTTI CORRELATI */
+  .rel .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  @media (max-width: 1024px) {
+    .ph-cols, .tt-head { grid-template-columns: 1fr; gap: 28px; }
+    .close { grid-template-columns: 1fr; }
+    .close-l { min-height: 0; }
+    .rel .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 1200px) { .a3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 700px) { .a3 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .a3 a { gap: 10px; padding-right: 12px; font-size: 15px; } .a3 img { width: 40px; height: 40px; } }
+  @media (max-width: 700px) {
+    .ft, .ph-cta { grid-template-columns: 1fr; }
+    .rel .grid { grid-template-columns: 1fr; }
+    .tt select, .tt input[type="search"] { min-width: 0; width: 100%; }
+    .tt-f, .tt-f label { width: 100%; }
+  }
+  @media (max-width: 600px) { .fm { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-page="prodotti">
+
+<main>
+  <!-- HERO -->
+  <section class="ph light" aria-labelledby="ph-t">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Percorso"><a href="index.html">Home</a> » <a href="prodotti.html">Prodotti</a> » <a href="aste-di-perforazione.html">Aste di perforazione</a> » Aste forgiate a frizione</nav>
+      <div class="ph-cols">
+        <div>
+          <p class="eyebrow"><a href="aste-di-perforazione.html">Aste di perforazione</a></p>
+          <h1 id="ph-t" class="lines">Aste forgiate a frizione</h1>
+          <ul class="ft rv" style="--d:.35s">
+            <li><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13"/><circle class="y" cx="16" cy="16" r="7"/><path d="M5 27 27 5"/></svg><span><span class="t">Diametri</span><span class="v">42–152 mm</span></span></li>
+            <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 8h28M2 24h28"/><path class="y" d="M5 24 9 8M12 24l4-16M19 24l4-16M26 24l3-12"/></svg><span><span class="t">Filettature</span><span class="v">31</span></span></li>
+            <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 6h26M3 26h26"/><path class="y" d="M3 11h26M3 21h26"/><path d="M16 11v10"/></svg><span><span class="t">Spessori</span><span class="v">4–9 mm</span></span></li>
+            <li><svg viewBox="0 0 32 32" aria-hidden="true"><path class="y" d="M3 16h26"/><path d="M3 9v14M29 9v14M8 12l-5 4 5 4M24 12l5 4-5 4"/></svg><span><span class="t">Lunghezze</span><span class="v">500–6000 mm</span></span></li>
+          </ul>
+          <div class="ph-cta rv" style="--d:.45s"><a class="btn" href="#info">Caratteristiche tecniche</a><a class="btn btn-k" href="#richiesta">Richiedi preventivo</a></div>
+        </div>
+        <div class="ph-pic rv" style="--d:.2s"><img src="img/prodotti/aste-forgiate-a-frizione.jpg" alt="Aste forgiate a frizione F.G.S. Drill" width="1400" height="809" fetchpriority="high"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO TECNICHE -->
+  <section class="sec tt dark" id="info" aria-labelledby="tt-t" style="margin-top:clamp(64px,6vw,100px)">
+    <div class="wrap">
+      <div class="tt-head">
+        <h2 id="tt-t" class="srt" data-theme="dark">Info tecniche</h2>
+        <div class="tt-draw"><img src="img/prodotti/disegno-aste-forgiate-a-frizione.png" alt="Disegno tecnico delle aste forgiate a frizione con le quote A, B, C, D, E, F, G, H" loading="lazy"></div>
+      </div>
+      <div class="tt-bar">
+        <div class="tt-f">
+          <label>Diametro<select class="f-d"><option value="">Tutti</option><option value="Ø42">Ø42</option><option value="Ø54">Ø54</option><option value="Ø60">Ø60</option><option value="Ø70">Ø70</option><option value="Ø76">Ø76</option><option value="Ø90">Ø90</option><option value="Ø95">Ø95</option><option value="Ø101">Ø101</option><option value="Ø114">Ø114</option><option value="Ø127">Ø127</option><option value="Ø140">Ø140</option><option value="Ø152">Ø152</option></select></label>
+          <label>Filettatura<input type="search" class="f-t" placeholder="Cerca" autocomplete="off"></label>
+        </div>
+        <p class="tt-n" role="status"></p>
+      </div>
+      <div class="tbl"><table class="tech"><thead><tr><th scope="col">Ø A (mm)</th><th scope="col">Filettatura</th><th scope="col">Spessore (mm)</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th><th scope="col">H</th></tr></thead><tbody>
+<tr data-d="Ø42"><td>Ø42</td><td>REG.42</td><td>6,3</td><td>57</td><td>40</td><td>35</td><td>12</td><td>15</td><td>134</td><td>89</td></tr>
+<tr data-d="Ø54"><td>Ø54</td><td>406RD</td><td>6,3</td><td>57</td><td>40</td><td>45</td><td>12</td><td>22</td><td>134</td><td>89</td></tr>
+<tr data-d="Ø54"><td>Ø54</td><td>REG.45</td><td>6,3</td><td>57</td><td>40</td><td>45</td><td>12</td><td>22</td><td>134</td><td>89</td></tr>
+<tr data-d="Ø60"><td>Ø60</td><td>BWJ</td><td>6,3</td><td>80</td><td>40</td><td>50</td><td>29,2</td><td>20</td><td>163</td><td>112</td></tr>
+<tr data-d="Ø60"><td>Ø60</td><td>506RD</td><td>6,3</td><td>80</td><td>40</td><td>50</td><td>10</td><td>30</td><td>134</td><td>89</td></tr>
+<tr data-d="Ø70"><td>Ø70</td><td>GG2</td><td>4</td><td>90</td><td>40</td><td>50</td><td>25,5</td><td>30</td><td>134</td><td>89</td></tr>
+<tr data-d="Ø70"><td>Ø70</td><td>NWY</td><td>4</td><td>85</td><td>40</td><td>55</td><td>15</td><td>30</td><td>173</td><td>103</td></tr>
+<tr data-d="Ø70"><td>Ø70</td><td>506RD</td><td>4</td><td>60</td><td>40</td><td>50</td><td>15</td><td>30</td><td>163</td><td>98</td></tr>
+<tr data-d="Ø70"><td>Ø70</td><td>2 3/8 MAYHEW JUNIOR</td><td>4</td><td>81</td><td>50</td><td>60</td><td>24</td><td>36</td><td>173</td><td>117</td></tr>
+<tr data-d="Ø76"><td>Ø76</td><td>506RD</td><td>4 / 6,3</td><td>60</td><td>40</td><td>65</td><td>15</td><td>30</td><td>134</td><td>89</td></tr>
+<tr data-d="Ø76"><td>Ø76</td><td>BR45</td><td>4 / 6,3 / 8</td><td>90</td><td>40</td><td>65</td><td>15</td><td>45</td><td>173</td><td>96</td></tr>
+<tr data-d="Ø76"><td>Ø76</td><td>2 3/8 MAYHEW JUNIOR</td><td>4 / 6,3 / 8</td><td>90</td><td>40</td><td>65</td><td>34</td><td>36</td><td>173</td><td>96</td></tr>
+<tr data-d="Ø76"><td>Ø76</td><td>2 3/8 REGULAR</td><td>4 / 6,3 / 8</td><td>90</td><td>40</td><td>65</td><td>15,8</td><td>30</td><td>173</td><td>96</td></tr>
+<tr data-d="Ø90"><td>Ø90</td><td>2 3/8 REGULAR</td><td>4 / 6,3 / 8,8</td><td>100</td><td>40</td><td>65</td><td>23,8</td><td>30</td><td>173</td><td>96</td></tr>
+<tr data-d="Ø90"><td>Ø90</td><td>2 7/8 REGULAR</td><td>4 / 6,3 / 8,8</td><td>105</td><td>40</td><td>65</td><td>16,1</td><td>30</td><td>173</td><td>83</td></tr>
+<tr data-d="Ø90"><td>Ø90</td><td>2 3/8 I.F.</td><td>4 / 6,3 / 8,8</td><td>100</td><td>40</td><td>65</td><td>21,8</td><td>40</td><td>173</td><td>96</td></tr>
+<tr data-d="Ø90"><td>Ø90</td><td>BR50</td><td>4 / 6,3 / 8,8</td><td>105</td><td>40</td><td>65</td><td>15</td><td>50</td><td>173</td><td>96</td></tr>
+<tr data-d="Ø90"><td>Ø90</td><td>2 3/8 MAYHEW REGULAR</td><td>4 / 6,3 / 8,8</td><td>110</td><td>40</td><td>65</td><td>27</td><td>40</td><td>173</td><td>117</td></tr>
+<tr data-d="Ø95"><td>Ø95</td><td>NORDMEYER</td><td>6,3</td><td>90</td><td>40</td><td>80</td><td>15</td><td>58</td><td>174</td><td>104</td></tr>
+<tr data-d="Ø101"><td>Ø101</td><td>2 7/8 I.F.</td><td>6,3 / 8,8</td><td>110</td><td>40</td><td>80</td><td>21,1</td><td>54</td><td>183</td><td>94</td></tr>
+<tr data-d="Ø101"><td>Ø101</td><td>2 7/8 REGULAR</td><td>6,3 / 8,8</td><td>110</td><td>40</td><td>80</td><td>21,1</td><td>50</td><td>183</td><td>94</td></tr>
+<tr data-d="Ø114"><td>Ø114</td><td>2 7/8 I.F.</td><td>5 / 6,3 / 8,8</td><td>115</td><td>40</td><td>95</td><td>26,1</td><td>54</td><td>193</td><td>104</td></tr>
+<tr data-d="Ø114"><td>Ø114</td><td>3 1/2 REGULAR</td><td>5 / 6,3 / 8,8</td><td>118</td><td>40</td><td>95</td><td>22,7</td><td>40</td><td>193</td><td>97</td></tr>
+<tr data-d="Ø114"><td>Ø114</td><td>3 1/2 FULL HOLE</td><td>5 / 6,3 / 8,8</td><td>118</td><td>40</td><td>95</td><td>22,7</td><td>60</td><td>193</td><td>97</td></tr>
+<tr data-d="Ø114"><td>Ø114</td><td>3 1/2 I.F.</td><td>5 / 6,3 / 8,8</td><td>121</td><td>40</td><td>95</td><td>19,4</td><td>60</td><td>193</td><td>91</td></tr>
+<tr data-d="Ø127"><td>Ø127</td><td>3 1/2 I.F.</td><td>6,3 / 8,8</td><td>119</td><td>40</td><td>105</td><td>17,4</td><td>60</td><td>213</td><td>111</td></tr>
+<tr data-d="Ø140"><td>Ø140</td><td>4 1/2 REGULAR</td><td>6,3 / 8,8</td><td>130</td><td>40</td><td>110</td><td>22,6</td><td>80</td><td>223</td><td>115</td></tr>
+<tr data-d="Ø140"><td>Ø140</td><td>4 I.F.</td><td>6,3 / 8,8</td><td>132</td><td>40</td><td>110</td><td>17,7</td><td>80</td><td>223</td><td>108</td></tr>
+<tr data-d="Ø140"><td>Ø140</td><td>4 1/2 FULL HOLE</td><td>6,3 / 8,8</td><td>140</td><td>40</td><td>110</td><td>38</td><td>76</td><td>223</td><td>121</td></tr>
+<tr data-d="Ø152"><td>Ø152</td><td>4 1/2 REGULAR</td><td>9</td><td>140</td><td>40</td><td>110</td><td>22,6</td><td>60</td><td>223</td><td>115</td></tr>
+<tr data-d="Ø152"><td>Ø152</td><td>4 1/2 I.F.</td><td>9</td><td>135</td><td>40</td><td>120</td><td>20,7</td><td>90</td><td>227</td><td>113</td></tr>
+</tbody></table></div>
+      <p class="tt-note">Quote in mm, come da disegno. Nello spessore, i valori separati da “/” sono gli spessori disponibili.</p>
+
+      <div class="wt" id="pesi">
+        <h3>Peso per lunghezza</h3>
+        <p>Peso in kg dell’asta, per spessore e lunghezza.</p>
+        <div class="tt-f"><label>Diametro e filettatura<select class="f-g"><option value="42|REG.42">Ø42 · REG.42</option><option value="54|406RD">Ø54 · 406RD</option><option value="54|REG.45">Ø54 · REG.45</option><option value="60|506RD">Ø60 · 506RD</option><option value="70|GG2">Ø70 · GG2</option><option value="70|NWY">Ø70 · NWY</option><option value="70|506RD">Ø70 · 506RD</option><option value="70|2 3/8 MAYHEW JUNIOR">Ø70 · 2 3/8 MAYHEW JUNIOR</option><option value="76|506RD">Ø76 · 506RD</option><option value="76|BR45">Ø76 · BR45</option><option value="76|2 3/8 MAYHEW JUNIOR">Ø76 · 2 3/8 MAYHEW JUNIOR</option><option value="76|2 3/8 REGULAR">Ø76 · 2 3/8 REGULAR</option><option value="90|2 3/8 REGULAR">Ø90 · 2 3/8 REGULAR</option><option value="90|2 7/8 REGULAR">Ø90 · 2 7/8 REGULAR</option><option value="90|2 3/8 I.F.">Ø90 · 2 3/8 I.F.</option><option value="90|BR50">Ø90 · BR50</option><option value="90|2 3/8 MAYHEW REGULAR">Ø90 · 2 3/8 MAYHEW REGULAR</option><option value="95|NORDMEYER">Ø95 · NORDMEYER</option><option value="101|2 7/8 I.F.">Ø101 · 2 7/8 I.F.</option><option value="101|2 7/8 REGULAR">Ø101 · 2 7/8 REGULAR</option><option value="114|2 7/8 I.F.">Ø114 · 2 7/8 I.F.</option><option value="114|3 1/2 REGULAR">Ø114 · 3 1/2 REGULAR</option><option value="114|3 1/2 FULL HOLE">Ø114 · 3 1/2 FULL HOLE</option><option value="114|3 1/2 I.F.">Ø114 · 3 1/2 I.F.</option><option value="127|3 1/2 I.F.">Ø127 · 3 1/2 I.F.</option><option value="140|4 1/2 REGULAR">Ø140 · 4 1/2 REGULAR</option><option value="140|4 I.F.">Ø140 · 4 I.F.</option><option value="152|4 1/2 REGULAR">Ø152 · 4 1/2 REGULAR</option><option value="152|4 1/2 I.F.">Ø152 · 4 1/2 I.F.</option></select></label></div>
+        <div class="tbl"><table class="wtab"><thead><tr><th scope="col">Spessore (mm)</th><th scope="col">500 mm</th><th scope="col">1000 mm</th><th scope="col">1500 mm</th><th scope="col">2000 mm</th><th scope="col">3000 mm</th><th scope="col">6000 mm</th></tr></thead><tbody>
+<tr data-group="42|REG.42"><td>6,3</td><td>2,5 kg</td><td>5,3 kg</td><td>8,1 kg</td><td>10,9 kg</td><td>16,5 kg</td><td>33,3 kg</td></tr>
+<tr data-group="54|406RD" hidden><td>6,3</td><td>5,1 kg</td><td>8,8 kg</td><td>12,5 kg</td><td>16,2 kg</td><td>23,6 kg</td><td>45,8 kg</td></tr>
+<tr data-group="54|REG.45" hidden><td>6,3</td><td>5,1 kg</td><td>8,8 kg</td><td>12,5 kg</td><td>16,2 kg</td><td>23,6 kg</td><td>45,8 kg</td></tr>
+<tr data-group="60|506RD" hidden><td>6,3</td><td>6,4 kg</td><td>10,6 kg</td><td>14,8 kg</td><td>19 kg</td><td>27,4 kg</td><td>52,6 kg</td></tr>
+<tr data-group="70|GG2" hidden><td>4</td><td>6,6 kg</td><td>9,9 kg</td><td>13,1 kg</td><td>16,4 kg</td><td>22,9 kg</td><td>42,4 kg</td></tr>
+<tr data-group="70|NWY" hidden><td>4</td><td>6,9 kg</td><td>10,1 kg</td><td>12,3 kg</td><td>16,6 kg</td><td>23,1 kg</td><td>42,6 kg</td></tr>
+<tr data-group="70|506RD" hidden><td>4</td><td>5,9 kg</td><td>9,1 kg</td><td>12,3 kg</td><td>15,6 kg</td><td>18,8 kg</td><td>41,6 kg</td></tr>
+<tr data-group="70|2 3/8 MAYHEW JUNIOR" hidden><td>4</td><td>6,8 kg</td><td>10 kg</td><td>13,3 kg</td><td>16,5 kg</td><td>23 kg</td><td>42,5 kg</td></tr>
+<tr data-group="76|506RD" hidden><td>4</td><td>7 kg</td><td>10,6 kg</td><td>14,2 kg</td><td>17,8 kg</td><td>25 kg</td><td>46,6 kg</td></tr>
+<tr data-group="76|506RD" hidden><td>6,3</td><td>8,1 kg</td><td>13,6 kg</td><td>19 kg</td><td>24,5 kg</td><td>35,4 kg</td><td>68,1 kg</td></tr>
+<tr data-group="76|BR45" hidden><td>4</td><td>8,3 kg</td><td>11,9 kg</td><td>15,5 kg</td><td>19,1 kg</td><td>26,3 kg</td><td>47,9 kg</td></tr>
+<tr data-group="76|BR45" hidden><td>6,3</td><td>9,2 kg</td><td>14,6 kg</td><td>20,1 kg</td><td>25,5 kg</td><td>36,4 kg</td><td>69,1 kg</td></tr>
+<tr data-group="76|2 3/8 MAYHEW JUNIOR" hidden><td>4</td><td>8 kg</td><td>11,5 kg</td><td>15,6 kg</td><td>18,8 kg</td><td>26 kg</td><td>47,6 kg</td></tr>
+<tr data-group="76|2 3/8 MAYHEW JUNIOR" hidden><td>6,3</td><td>8,9 kg</td><td>14,3 kg</td><td>19,8 kg</td><td>25,2 kg</td><td>36,1 kg</td><td>68,8 kg</td></tr>
+<tr data-group="76|2 3/8 MAYHEW JUNIOR" hidden><td>8</td><td>9,4 kg</td><td>16,1 kg</td><td>22,8 kg</td><td>29,5 kg</td><td>42,9 kg</td><td>83,1 kg</td></tr>
+<tr data-group="76|2 3/8 REGULAR" hidden><td>4</td><td>9,2 kg</td><td>12,8 kg</td><td>16,4 kg</td><td>20 kg</td><td>27,2 kg</td><td>48,8 kg</td></tr>
+<tr data-group="76|2 3/8 REGULAR" hidden><td>6,3</td><td>10,2 kg</td><td>15,6 kg</td><td>21,1 kg</td><td>26,5 kg</td><td>37,4 kg</td><td>70,1 kg</td></tr>
+<tr data-group="76|2 3/8 REGULAR" hidden><td>8</td><td>10,8 kg</td><td>17,5 kg</td><td>24,2 kg</td><td>30,9 kg</td><td>44,3 kg</td><td>84,5 kg</td></tr>
+<tr data-group="90|2 3/8 REGULAR" hidden><td>4</td><td>11,5 kg</td><td>15,7 kg</td><td>19,9 kg</td><td>24,1 kg</td><td>32,5 kg</td><td>57,7 kg</td></tr>
+<tr data-group="90|2 3/8 REGULAR" hidden><td>6,3</td><td>12,6 kg</td><td>19 kg</td><td>25,5 kg</td><td>31,9 kg</td><td>44,8 kg</td><td>83,5 kg</td></tr>
+<tr data-group="90|2 3/8 REGULAR" hidden><td>8,8</td><td>13,6 kg</td><td>22,3 kg</td><td>30,9 kg</td><td>39,6 kg</td><td>56,9 kg</td><td>108,8 kg</td></tr>
+<tr data-group="90|2 7/8 REGULAR" hidden><td>4</td><td>11,6 kg</td><td>15,8 kg</td><td>20 kg</td><td>24,2 kg</td><td>32,6 kg</td><td>57,8 kg</td></tr>
+<tr data-group="90|2 7/8 REGULAR" hidden><td>6,3</td><td>12,7 kg</td><td>19,2 kg</td><td>25,6 kg</td><td>32,1 kg</td><td>45 kg</td><td>83,7 kg</td></tr>
+<tr data-group="90|2 7/8 REGULAR" hidden><td>8,8</td><td>13,9 kg</td><td>22,5 kg</td><td>31,2 kg</td><td>39,8 kg</td><td>57,1 kg</td><td>109 kg</td></tr>
+<tr data-group="90|2 3/8 I.F." hidden><td>4</td><td>10,5 kg</td><td>14,7 kg</td><td>18,9 kg</td><td>23,1 kg</td><td>31,5 kg</td><td>56,7 kg</td></tr>
+<tr data-group="90|2 3/8 I.F." hidden><td>6,3</td><td>11,6 kg</td><td>18 kg</td><td>24,5 kg</td><td>30,9 kg</td><td>43,8 kg</td><td>82,5 kg</td></tr>
+<tr data-group="90|2 3/8 I.F." hidden><td>8,8</td><td>12,6 kg</td><td>21,3 kg</td><td>29,9 kg</td><td>38,6 kg</td><td>55,9 kg</td><td>107,8 kg</td></tr>
+<tr data-group="90|BR50" hidden><td>6,3</td><td>10,8 kg</td><td>17,2 kg</td><td>23,7 kg</td><td>30,1 kg</td><td>43 kg</td><td>81,7 kg</td></tr>
+<tr data-group="90|BR50" hidden><td>8,8</td><td>11,9 kg</td><td>20,5 kg</td><td>29,2 kg</td><td>37,8 kg</td><td>55,1 kg</td><td>107 kg</td></tr>
+<tr data-group="90|2 3/8 MAYHEW REGULAR" hidden><td>6,3</td><td>12,4 kg</td><td>18,9 kg</td><td>25,3 kg</td><td>31,8 kg</td><td>44,7 kg</td><td>83,4 kg</td></tr>
+<tr data-group="95|NORDMEYER" hidden><td>6,3</td><td>11,4 kg</td><td>18,3 kg</td><td>25,2 kg</td><td>32,1 kg</td><td>45,9 kg</td><td>87,3 kg</td></tr>
+<tr data-group="101|2 7/8 I.F." hidden><td>6,3</td><td>14 kg</td><td>21,4 kg</td><td>28,9 kg</td><td>36 kg</td><td>51,2 kg</td><td>95,9 kg</td></tr>
+<tr data-group="101|2 7/8 I.F." hidden><td>8,8</td><td>15,2 kg</td><td>25,2 kg</td><td>35,3 kg</td><td>45,3 kg</td><td>65,4 kg</td><td>125,7 kg</td></tr>
+<tr data-group="101|2 7/8 REGULAR" hidden><td>6,3</td><td>17 kg</td><td>24,4 kg</td><td>31,9 kg</td><td>39,3 kg</td><td>54,2 kg</td><td>98,9 kg</td></tr>
+<tr data-group="101|2 7/8 REGULAR" hidden><td>8,8</td><td>18,2 kg</td><td>28,3 kg</td><td>38,3 kg</td><td>48,4 kg</td><td>68,5 kg</td><td>128,8 kg</td></tr>
+<tr data-group="114|2 7/8 I.F." hidden><td>5</td><td>18,8 kg</td><td>25,5 kg</td><td>33,3 kg</td><td>39 kg</td><td>52,5 kg</td><td>93 kg</td></tr>
+<tr data-group="114|2 7/8 I.F." hidden><td>6,3</td><td>19,5 kg</td><td>27,9 kg</td><td>36,3 kg</td><td>44,7 kg</td><td>61,5 kg</td><td>111,9 kg</td></tr>
+<tr data-group="114|2 7/8 I.F." hidden><td>8,8</td><td>20,8 kg</td><td>32,2 kg</td><td>43,6 kg</td><td>55 kg</td><td>77,8 kg</td><td>146,2 kg</td></tr>
+<tr data-group="114|3 1/2 REGULAR" hidden><td>5</td><td>20,5 kg</td><td>27,2 kg</td><td>34 kg</td><td>40,7 kg</td><td>54,2 kg</td><td>94,7 kg</td></tr>
+<tr data-group="114|3 1/2 REGULAR" hidden><td>6,3</td><td>21,2 kg</td><td>29,6 kg</td><td>38 kg</td><td>46,4 kg</td><td>63,2 kg</td><td>113,6 kg</td></tr>
+<tr data-group="114|3 1/2 REGULAR" hidden><td>8,8</td><td>22,5 kg</td><td>33,9 kg</td><td>45,3 kg</td><td>56,7 kg</td><td>79,5 kg</td><td>147,9 kg</td></tr>
+<tr data-group="114|3 1/2 FULL HOLE" hidden><td>5</td><td>17,6 kg</td><td>24,3 kg</td><td>31,1 kg</td><td>33,8 kg</td><td>51,3 kg</td><td>91,8 kg</td></tr>
+<tr data-group="114|3 1/2 FULL HOLE" hidden><td>6,3</td><td>18,2 kg</td><td>26,6 kg</td><td>35 kg</td><td>43,4 kg</td><td>60,2 kg</td><td>110,6 kg</td></tr>
+<tr data-group="114|3 1/2 FULL HOLE" hidden><td>8,8</td><td>19,5 kg</td><td>30,9 kg</td><td>42,3 kg</td><td>53,7 kg</td><td>76,5 kg</td><td>144,9 kg</td></tr>
+<tr data-group="114|3 1/2 I.F." hidden><td>5</td><td>17,2 kg</td><td>24 kg</td><td>30,7 kg</td><td>37,5 kg</td><td>51 kg</td><td>91,5 kg</td></tr>
+<tr data-group="114|3 1/2 I.F." hidden><td>6,3</td><td>18 kg</td><td>26,4 kg</td><td>34,8 kg</td><td>43,2 kg</td><td>60 kg</td><td>110,4 kg</td></tr>
+<tr data-group="114|3 1/2 I.F." hidden><td>8,8</td><td>19,3 kg</td><td>30,7 kg</td><td>42,1 kg</td><td>53,5 kg</td><td>76,3 kg</td><td>144,7 kg</td></tr>
+<tr data-group="127|3 1/2 I.F." hidden><td>6,3</td><td>–</td><td>38,1 kg</td><td>47,5 kg</td><td>56,9 kg</td><td>75,7 kg</td><td>132,1 kg</td></tr>
+<tr data-group="127|3 1/2 I.F." hidden><td>8,8</td><td>–</td><td>43 kg</td><td>55,7 kg</td><td>68,5 kg</td><td>94 kg</td><td>170,5 kg</td></tr>
+<tr data-group="140|4 1/2 REGULAR" hidden><td>6,3</td><td>–</td><td>42,2 kg</td><td>52,6 kg</td><td>63 kg</td><td>83,8 kg</td><td>146,2 kg</td></tr>
+<tr data-group="140|4 1/2 REGULAR" hidden><td>8,8</td><td>–</td><td>47,5 kg</td><td>61,6 kg</td><td>75,8 kg</td><td>104,1 kg</td><td>189 kg</td></tr>
+<tr data-group="140|4 I.F." hidden><td>6,3</td><td>–</td><td>36,6 kg</td><td>47 kg</td><td>57,4 kg</td><td>78,2 kg</td><td>140,6 kg</td></tr>
+<tr data-group="140|4 I.F." hidden><td>8,8</td><td>–</td><td>41,7 kg</td><td>55,8 kg</td><td>70 kg</td><td>98,3 kg</td><td>183,2 kg</td></tr>
+<tr data-group="152|4 1/2 REGULAR" hidden><td>9</td><td>–</td><td>48,3 kg</td><td>74,4 kg</td><td>90,9 kg</td><td>123,9 kg</td><td>222,9 kg</td></tr>
+<tr data-group="152|4 1/2 I.F." hidden><td>9</td><td>–</td><td>–</td><td>64,8 kg</td><td>81,3 kg</td><td>114,3 kg</td><td>213,3 kg</td></tr>
+</tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICAZIONI -->
+  <section class="apx light" aria-labelledby="ap-t">
+    <div class="wrap">
+      <h2 id="ap-t">Applicazioni</h2>
+      <div class="a3"><a href="https://fgsdrill.nb4dev.it/applicazioni/ricerca-idrica/"><img src="img/app-ricerca-idrica.webp" alt="" loading="lazy">Ricerca idrica</a><a href="https://fgsdrill.nb4dev.it/applicazioni/geotermia/"><img src="img/app-geotermia.webp" alt="" loading="lazy">Geotermia</a><a href="https://fgsdrill.nb4dev.it/applicazioni/consolidamenti/"><img src="img/app-consolidamenti.webp" alt="" loading="lazy">Consolidamenti</a><a href="https://fgsdrill.nb4dev.it/applicazioni/cave-e-miniere/"><img src="img/app-cave-miniere.webp" alt="" loading="lazy">Cave e miniere</a><a href="https://fgsdrill.nb4dev.it/applicazioni/ingegneria-civile/"><img src="img/app-ingegneria-civile.webp" alt="" loading="lazy">Ingegneria civile</a><a href="https://fgsdrill.nb4dev.it/applicazioni/geognostica/"><img src="img/app-geognostica.webp" alt="" loading="lazy">Geognostica</a></div>
+    </div>
+  </section>
+
+  <!-- RICHIESTA (come Soluzioni su misura) -->
+  <section class="close" id="richiesta" aria-labelledby="fm-t">
+    <div class="close-l">
+      <h2 id="fm-t" class="lines">Sei interessato ai nostri prodotti?</h2>
+    </div>
+    <div class="close-r">
+      <form class="fm" novalidate>
+        <input class="full" name="azienda" placeholder="Azienda*" aria-label="Azienda" required autocomplete="organization">
+        <input name="nome" placeholder="Nome*" aria-label="Nome" required autocomplete="given-name">
+        <input name="cognome" placeholder="Cognome*" aria-label="Cognome" required autocomplete="family-name">
+        <input type="email" name="email" placeholder="Email*" aria-label="Email" required autocomplete="email">
+        <input type="tel" name="telefono" placeholder="Telefono*" aria-label="Telefono" required autocomplete="tel">
+        <fieldset class="full yn">
+          <legend>Dimensioni su misura?*</legend>
+          <label><input type="radio" name="su-misura" value="si" required><span>Sì</span></label>
+          <label><input type="radio" name="su-misura" value="no"><span>No</span></label>
+        </fieldset>
+        <textarea class="full" name="messaggio" placeholder="Messaggio" aria-label="Messaggio"></textarea>
+        <p class="note">* I campi contrassegnati con l’asterisco sono obbligatori.</p>
+        <label class="ok"><input type="checkbox" name="privacy" required><span>Dichiaro di aver letto e compreso l’<a href="#">Informativa Privacy</a> e acconsento al trattamento dei miei dati personali.</span></label>
+        <button class="btn" type="submit">Invia richiesta</button>
+        <p class="sent" role="status" hidden>Prototipo: il modulo non invia dati. Nel sito la richiesta arriva a F.G.S. Drill.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- PRODOTTI CORRELATI -->
+  <section class="sec rel light" aria-labelledby="rel-t">
+    <div class="wrap">
+      <p class="eyebrow">Prodotti correlati</p>
+      <h2 id="rel-t" class="srt">Altri prodotti F.G.S. Drill</h2>
+      <div class="grid" data-cat="aste-di-perforazione" data-exclude="aste-forgiate-a-frizione" data-limit="3" style="margin-top:clamp(40px,4vw,56px)"></div>
+    </div>
+  </section>
+</main>
+<script src="assets/site.js?v=d5"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+<script src="assets/motion.js?v=2"></script>
+<script src="assets/catalogo.js?v=6"></script>
+<script>
+(() => {
+  const $ = q => document.querySelector(q), $$ = q => [...document.querySelectorAll(q)];
+  const rows = $$(".tech tbody tr"), fd = $(".f-d"), ft = $(".f-t"), fg = $(".f-g");
+
+  // Filtri della tabella: diametro e ricerca sulla filettatura
+  const filter = () => {
+    const q = ft.value.trim().toLowerCase();
+    let n = 0;
+    rows.forEach(r => { r.hidden = (fd.value && r.dataset.d !== fd.value) || (q && !r.cells[1].textContent.toLowerCase().includes(q)); n += !r.hidden; });
+    $(".tt-n").textContent = `${n} di ${rows.length} righe`;
+  };
+  fd.addEventListener("change", filter); ft.addEventListener("input", filter); filter();
+
+  // Pesi: scelta dal menu
+  const showW = g => {
+    if (!g) return;
+    fg.value = g;
+    $$(".wtab tbody tr").forEach(r => r.hidden = r.dataset.group !== g);
+  };
+  fg.addEventListener("change", () => showW(fg.value));
+  showW(fg.value);
+
+  // Modulo del prototipo: controlla i campi obbligatori, non invia nulla
+  const f = $(".fm");
+  f.addEventListener("submit", e => {
+    e.preventDefault();
+    if (!f.reportValidity()) return;
+    f.querySelector(".sent").hidden = false;
+  });
+})();
+</script>
+</body>
+</html>

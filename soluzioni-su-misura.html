@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.css">
-<link rel="stylesheet" href="assets/style.css?v=c9">
+<link rel="stylesheet" href="assets/style.css?v=d3">
 <style>
   /* Pagina da fgsdrill.nb4dev.it/soluzioni-su-misura-per-la-perforazione/ con il testo inviato dalla cliente.
      Impaginata come Sostenibilità (sezioni di primes.com.au), stile di Chi siamo e Home(A). */
@@ -29,7 +29,7 @@
   .intro-r p { font-size: 17px; line-height: 1.6; color: var(--text); }
 
   /* HERO */
-  .sx-hero { position: relative; min-height: max(620px, calc(100svh - 45px)); display: flex; align-items: flex-end; isolation: isolate; color: #fff; overflow: hidden; }
+  .sx-hero { position: relative; min-height: max(620px, 100svh); display: flex; align-items: flex-end; isolation: isolate; color: #fff; overflow: hidden; }
   .sx-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
   .sx-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.4) 0%, rgba(0,0,0,.1) 35%, rgba(0,0,0,.72) 100%); }
   .sx-hero .wrap { width: 100%; padding-bottom: clamp(48px, 7vh, 72px); }
@@ -42,75 +42,59 @@
 
   /* TRE CARD CON ICONA (come Sostenibilità) */
   .fronts { background: #fff; }
-  .ig { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(48px, 5vw, 72px); border-block: 1px solid #d6d5d0; }
-  .ig-card { display: flex; flex-direction: column; padding: 26px 24px 28px; border-left: 1px solid #d6d5d0; }
-  .ig-card:first-child { border-left: 0; padding-left: 0; }
-  .ig-card h3 { min-height: 2.5em; font-size: 22px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; max-width: 16em; }
-  .ig-ico { height: 300px; display: grid; place-items: center; padding: 32px 0; }
-  .ig-ico svg { width: min(220px, 70%); height: auto; overflow: visible; }
-  .ig-ico svg * { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-  .ig-ico svg .y { stroke: var(--yellow); stroke-width: 2.5; }
-  .ig-ico svg .d { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.4s var(--ease); }
-  .ig-card.in .d { stroke-dashoffset: 0; }
-  .ig-card p { font-size: 16.5px; line-height: 1.55; color: var(--text); max-width: 30em; }
+  /* A SCACCHIERA: foto e testo affiancati, i lati si alternano a ogni riga */
+  .ig { display: grid; gap: clamp(48px, 6vw, 96px); margin-top: clamp(48px, 5vw, 72px); }
+  .ig-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: 1fr auto auto 1fr; grid-template-areas: "pic ." "pic h" "pic p" "pic ."; column-gap: clamp(40px, 6vw, 110px); }
+  .ig-card:nth-child(even) { grid-template-areas: ". pic" "h pic" "p pic" ". pic"; }
+  .ig-card h3 { grid-area: h; font-size: clamp(1.6rem, 2.6vw, 2.4rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; max-width: 14em; }
+  .ig-pic { grid-area: pic; border-radius: 8px; overflow: hidden; }
+  .ig-pic img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .ig-card p { grid-area: p; margin-top: 20px; font-size: 17px; line-height: 1.6; color: var(--text); max-width: 30em; }
 
-  /* Icone sempre in movimento, ognuna racconta il suo punto */
-  .ig-ico svg .mv { animation: mv 2.4s var(--ease) infinite; }
-  .ig-ico svg .scan { animation: scan 3.2s ease-in-out infinite; }
-  .ig-ico svg .wave { animation: wave 2.4s ease-in-out infinite; }
-  .ig-ico svg .wave:nth-of-type(2) { animation-delay: .4s; }
-  .ig-ico svg .wave:nth-of-type(3) { animation-delay: .8s; }
-  .ig-ico svg .glow { animation: glow 2.4s ease-in-out infinite; }
-  .ig-ico svg .spin { transform-box: view-box; transform-origin: 38px 100px; animation: spin 1.2s linear infinite; }
-  .ig-ico svg .tool { animation: tool 3.6s ease-in-out infinite; }
-  .ig-ico svg .chip { animation: chip 3.6s ease-in-out infinite; }
-  @keyframes mv { 0% { transform: translateX(-6px); opacity: 0; } 30%, 70% { opacity: 1; } 100% { transform: translateX(10px); opacity: 0; } }
-  @keyframes scan { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(46px); } }
-  @keyframes wave { 0% { transform: translateY(8px); opacity: 0; } 40% { opacity: 1; } 100% { transform: translateY(-14px); opacity: 0; } }
-  @keyframes glow { 0%, 100% { opacity: .15; } 50% { opacity: 1; } }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  @keyframes tool { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-58px); } }
-  @keyframes chip { 0%, 100% { transform: translateX(0); opacity: 0; } 20%, 80% { opacity: 1; } 50% { transform: translateX(-58px); } }
 
-  /* MODULO (come sul sito di sviluppo): titolo e testo centrati, campi con il testo dentro */
-  .fm-sec { padding-top: 0; text-align: center; }
-  .fm-wrap { max-width: 860px; margin-inline: auto; }
-  .fm-sec .srt { margin-inline: auto; }
-  .fm-lead { max-width: 40em; margin: 24px auto 0; font-size: 18px; line-height: 1.55; color: var(--text); }
-  .fm { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: clamp(36px, 4vw, 52px); text-align: left; }
+  /* MODULO: giallo a sinistra, modulo sul nero a destra (come la chiusura di Sostenibilità) */
+  .close { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
+  .close-l { background: var(--yellow); color: var(--ink); padding: clamp(56px, 6vw, 90px) var(--gut); min-height: 520px; }
+  .close-l .eyebrow { color: var(--ink); }
+  .close-l .eyebrow::before { background: var(--ink); }
+  .close-l h2 { font-size: clamp(2.4rem, 4.2vw, 4.2rem); line-height: 1.05; letter-spacing: -.03em; max-width: 9em; }
+  .close-r { background: var(--ink); color: #fff; padding: clamp(56px, 6vw, 90px) var(--gut); }
+  .close-l p { max-width: 26em; margin-top: 28px; font-size: 19px; line-height: 1.55; color: var(--ink); }
+  .close-r > p { font-size: 19px; line-height: 1.55; color: #e4e3dd; max-width: 34em; }
+  .fm { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 720px; }
   .fm .full { grid-column: 1 / -1; }
-  .fm input:not([type="checkbox"]), .fm textarea { width: 100%; padding: 18px 20px; border: 1px solid #d0d7cf; border-radius: 8px; background: #fff; color: var(--ink); font: 400 17px/1.4 var(--font); transition: border-color .2s ease; }
-  .fm ::placeholder { color: #6b6b68; opacity: 1; }
-  .fm textarea { min-height: 200px; resize: vertical; }
-  .fm input:focus, .fm textarea:focus { outline: none; border-color: var(--ink); }
-  .fm .note { grid-column: 1 / -1; margin-top: 8px; font-size: 15px; color: var(--text); }
-  .fm .ok { grid-column: 1 / -1; display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.5; color: var(--text); }
-  .fm .ok input { width: 18px; height: 18px; flex: none; margin-top: 2px; accent-color: var(--ink); }
-  .fm .ok a { color: var(--ink); text-decoration: underline var(--yellow) 2px; text-underline-offset: 4px; }
+  .fm input:not([type="checkbox"]), .fm textarea { width: 100%; padding: 17px 20px; border: 1px solid #3a3a38; border-radius: 8px; background: #1b1b1a; color: #fff; font: 400 17px/1.4 var(--font); transition: border-color .2s ease; }
+  .fm ::placeholder { color: #b9b8b2; opacity: 1; }
+  .fm textarea { min-height: 180px; resize: vertical; }
+  .fm input:focus, .fm textarea:focus { outline: none; border-color: var(--yellow); }
+  .fm .note { grid-column: 1 / -1; margin-top: 4px; font-size: 15px; color: #cfcec8; }
+  .fm .ok { grid-column: 1 / -1; display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.5; color: #cfcec8; }
+  .fm .ok input { width: 18px; height: 18px; flex: none; margin-top: 2px; accent-color: var(--yellow); }
+  .fm .ok a { color: #fff; text-decoration: underline var(--yellow) 2px; text-underline-offset: 4px; }
   .fm .btn { grid-column: 1 / -1; justify-self: start; margin-top: 12px; }
-  .fm .sent { grid-column: 1 / -1; font-size: 15px; color: var(--text); }
+  .fm .sent { grid-column: 1 / -1; font-size: 15px; color: #cfcec8; }
 
   @media (max-width: 1024px) {
-    .intro, .sx-cols { grid-template-columns: 1fr; }
+    .intro, .sx-cols, .close { grid-template-columns: 1fr; }
+    .close-l { min-height: 0; }
     .intro { gap: 24px; }
     .intro-r, .sx-hero .sx-lead { justify-self: start; }
     .sx-cols { gap: 24px; }
-    .ig { grid-template-columns: 1fr; }
-    .ig-card, .ig-card:first-child { min-height: 0; padding: 26px 0 30px; border-left: 0; border-top: 1px solid #d6d5d0; }
-    .ig-card:first-child { border-top: 0; }
-    .ig-ico svg { width: 180px; }
+    .ig { gap: 48px; }
+    .ig-card, .ig-card:nth-child(even) { grid-template-columns: 1fr; grid-template-rows: none; grid-template-areas: "pic" "h" "p"; }
+    .ig-card h3 { margin-top: 24px; }
+    .ig-card p { margin-top: 12px; }
   }
   @media (max-width: 600px) { .fm { grid-template-columns: 1fr; } }
-  @media (prefers-reduced-motion: reduce) { .ig-ico svg .d { stroke-dashoffset: 0; transition: none; } .ig-ico svg * { animation: none !important; } }
 </style>
 </head>
 <body data-page="su-misura" class="over">
 
 <main>
   <section class="sx-hero dark" aria-labelledby="sm-t">
-    <img src="img/componenti-attrezzatura-fgs-drill.webp" alt="" fetchpriority="high">
+    <img src="img/saldatura-fgs-drill.webp" alt="" fetchpriority="high">
     <div class="wrap">
-      <nav class="crumb" aria-label="Percorso"><a href="home-a.html">Home</a> » Soluzioni su misura</nav>
+      <nav class="crumb" aria-label="Percorso"><a href="index.html">Home</a> » Soluzioni su misura</nav>
       <div class="sx-cols">
         <h1 id="sm-t" class="lines">Attrezzature e componenti su misura per la perforazione</h1>
         <p class="sx-lead rv" style="--d:.35s">Una misura particolare, una connessione specifica o la necessità di modificare un componente possono richiedere una soluzione dedicata. Affianchiamo i professionisti della perforazione nella valutazione di richieste fuori catalogo.</p>
@@ -130,62 +114,30 @@
       <div class="ig">
         <article class="ig-card">
           <h3>Dal campione o dal disegno</h3>
-          <div class="ig-ico" aria-hidden="true">
-            <!-- dal disegno (o dal campione) al pezzo: il disegno viene letto, la freccia porta al pezzo finito -->
-            <svg viewBox="6 30 184 120">
-              <rect class="d" pathLength="1" x="14" y="42" width="66" height="96" rx="4"/>
-              <path d="M24 64h46M24 60v8M70 60v8"/>
-              <path class="d" pathLength="1" d="M24 96h10v-10h26v10h10v18h-10v10h-26v-10h-10z"/>
-              <path class="y scan" d="M18 58h58" style="stroke-width:1.5"/>
-              <path class="y mv" d="M90 90h20M104 84l6 6-6 6"/>
-              <rect class="d" pathLength="1" x="124" y="64" width="34" height="52" rx="4"/>
-              <path class="d" pathLength="1" d="M158 76h24v28h-24"/>
-              <path d="M165 76l-4 28M172 76l-4 28M179 76l-4 28"/>
-            </svg>
-          </div>
+          <div class="ig-pic image-reveal"><img src="img/su-misura-disegno-cad.jpg" alt="Disegno di un componente al CAD" width="1000" height="1000" loading="lazy"></div>
           <p>Partendo dalle vostre richieste, che sia un campione o un disegno, realizziamo pezzi speciali adatti alle esigenze più svariate.</p>
         </article>
         <article class="ig-card">
           <h3>Acciai di alta qualità e trattamenti termici mirati</h3>
-          <div class="ig-ico" aria-hidden="true">
-            <!-- barra d'acciaio che si scalda durante il trattamento termico -->
-            <svg viewBox="0 0 200 180">
-              <rect class="d" pathLength="1" x="22" y="104" width="156" height="30" rx="15"/>
-              <circle cx="163" cy="119" r="6"/>
-              <path class="y glow" d="M40 119h108"/>
-              <path class="y wave" d="M62 88c-8-10 8-18 0-28s8-18 0-28"/>
-              <path class="y wave" d="M100 88c-8-10 8-18 0-28s8-18 0-28"/>
-              <path class="y wave" d="M138 88c-8-10 8-18 0-28s8-18 0-28"/>
-              <path d="M22 156h156"/>
-            </svg>
-          </div>
+          <div class="ig-pic image-reveal"><img src="img/su-misura-trattamento-termico.jpg" alt="Componenti pronti per il trattamento termico" width="1000" height="1000" loading="lazy"></div>
           <p>Nel nostro stabilimento lavoriamo utilizzando acciai di alta qualità e trattamenti termici mirati.</p>
         </article>
         <article class="ig-card">
           <h3>Operatori esperti e programmazione CNC</h3>
-          <div class="ig-ico" aria-hidden="true">
-            <!-- tornio CNC: il mandrino gira, l'utensile scorre sulla barra e fa i trucioli -->
-            <svg viewBox="0 0 200 180">
-              <rect class="d" pathLength="1" x="18" y="56" width="40" height="88" rx="4"/>
-              <circle class="d" pathLength="1" cx="38" cy="100" r="13"/>
-              <path class="y spin" d="M38 100v-13"/>
-              <rect class="d" pathLength="1" x="58" y="86" width="124" height="28"/>
-              <path d="M128 86l-6 28M138 86l-6 28M148 86l-6 28M158 86l-6 28M168 86l-6 28"/>
-              <path class="y tool" d="M156 40h20v22l-10 22-10-22z"/>
-              <path class="y chip" d="M172 80l8-6M174 84l9-1" style="stroke-width:1.5"/>
-            </svg>
-          </div>
+          <div class="ig-pic image-reveal"><img src="img/su-misura-tornio-cnc.jpg" alt="Operatore al tornio CNC con i pezzi lavorati" width="1000" height="1000" loading="lazy"></div>
           <p>L’esperienza dei nostri operatori e la programmazione CNC di ultima generazione ci consentono di realizzare un prodotto su misura di altissima qualità.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- MODULO (come sul sito di sviluppo) -->
-  <section class="sec fm-sec light" id="richiesta" aria-labelledby="fm-t">
-    <div class="wrap fm-wrap">
-      <h2 id="fm-t" class="srt">Descrivici la tua esigenza</h2>
-      <p class="fm-lead rv">Indica il tipo di componente, le dimensioni, le connessioni e l’eventuale quantità richiesta. Se disponibili, allega disegni o riferimenti tecnici.</p>
+  <!-- MODULO: giallo a sinistra, modulo a destra -->
+  <section class="close" id="richiesta" aria-labelledby="fm-t">
+    <div class="close-l">
+      <h2 id="fm-t" class="lines">Descrivici la tua esigenza</h2>
+      <p class="rv">Indica il tipo di componente, le dimensioni, le connessioni e l’eventuale quantità richiesta. Se disponibili, allega disegni o riferimenti tecnici.</p>
+    </div>
+    <div class="close-r">
       <form class="fm" novalidate>
         <input class="full" name="azienda" placeholder="Azienda*" aria-label="Azienda" required autocomplete="organization">
         <input name="nome" placeholder="Nome*" aria-label="Nome" required autocomplete="given-name">
@@ -201,7 +153,7 @@
     </div>
   </section>
 </main>
-<script src="assets/site.js?v=c5"></script>
+<script src="assets/site.js?v=d5"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
@@ -209,9 +161,6 @@
 <script>
 (() => {
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  // Icone: le linee si disegnano quando la card entra in vista
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .35 });
-  document.querySelectorAll(".ig-card").forEach(c => still ? c.classList.add("in") : io.observe(c));
 
   // Modulo del prototipo: controlla i campi obbligatori, non invia nulla
   const f = document.querySelector(".fm");
@@ -223,6 +172,10 @@
 
   if (!window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
+  document.querySelectorAll(".image-reveal").forEach(el => {
+    if (still) return;
+    gsap.fromTo(el, { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut", scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" } });
+  });
   document.querySelectorAll(".srt").forEach(el => {
     el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="word">${w}</span>`).join(" ");
     if (still) return gsap.set(el.querySelectorAll(".word"), { color: "#1a1a1a" });

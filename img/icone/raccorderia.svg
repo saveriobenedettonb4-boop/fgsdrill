@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Raccorderia: il maschio si avvita nella femmina, il filetto gira mentre entra -->
+  <style>
+    .y{stroke:#eec30d;stroke-width:3}
+    .p,.h,.m{animation:p 3s cubic-bezier(.65,0,.35,1) infinite alternate}
+    .h{animation-name:h}.m{animation-name:m}
+    /* m sposta tutto di metà corsa: i due pezzi si vengono incontro e l'icona resta centrata */
+    @keyframes m{0%,14%{transform:none}86%,to{transform:translateX(22px)}}
+    @keyframes p{0%,14%{transform:translateX(44px)}86%,to{transform:none}}
+    @keyframes h{0%,14%{transform:none}86%,to{transform:translateX(-27px)}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <!-- a: nasconde il filetto quando è dentro la femmina; b: il filetto, si muove col maschio -->
+  <clipPath id="a"><rect x="108" width="132" height="160"/></clipPath>
+  <clipPath id="b"><path d="M108,62L80,66V94L108,98z"/></clipPath>
+  <g class="m">
+    <rect x="40" y="48" width="68" height="64" rx="6"/>
+    <path class="y" d="M50,60H98"/>
+    <g clip-path="url(#a)"><g class="p">
+      <rect x="108" y="52" width="50" height="56" rx="6"/>
+      <path d="M108,62L80,66V94L108,98"/>
+      <g clip-path="url(#b)"><path class="h" d="M80,62l-3,36M89,62l-3,36M98,62l-3,36M107,62l-3,36M116,62l-3,36M125,62l-3,36M134,62l-3,36M143,62l-3,36"/></g>
+    </g></g>
+  </g>
+</svg>

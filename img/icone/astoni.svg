@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Astoni e stabilizzatori: le lame girano fra le pareti del foro (in giallo) -->
+  <style>
+    .y{stroke:#eec30d;stroke-width:3}
+    .b{animation:b 2.4s linear infinite}
+    @keyframes b{to{transform:translateX(-28px)}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <clipPath id="a"><rect x="79" y="55" width="82" height="50" rx="4"/></clipPath>
+  <path class="y" d="M58,42H182M58,118H182"/>
+  <path d="M78,68H27Q24,68 24,71V89Q24,92 27,92H78"/>
+  <rect x="78" y="54" width="84" height="52" rx="5"/>
+  <!-- coppie di linee a passo 28: lo scorrimento di un passo è il giro completo -->
+  <g clip-path="url(#a)"><path class="b" d="M70,54l-18,52M78,54l-18,52M98,54l-18,52M106,54l-18,52M126,54l-18,52M134,54l-18,52M154,54l-18,52M162,54l-18,52M182,54l-18,52M190,54l-18,52M210,54l-18,52M218,54l-18,52"/></g>
+  <path d="M162,68H196V92H162M196,71L214,73.5V86.5L196,89M201,72L199,88.5M206,72.6L204,88M211,73.2L209,87.3"/>
+</svg>

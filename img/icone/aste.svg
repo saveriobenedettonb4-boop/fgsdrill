@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Aste di perforazione: l'asta si allunga, la quota la segue -->
+  <style>
+    .y{stroke:#eec30d;stroke-width:3}
+    .l,.r{animation:l 2.8s cubic-bezier(.65,0,.35,1) infinite alternate}
+    .r{animation-name:r}
+    @keyframes l{0%,14%{transform:translateX(22px)}86%,to{transform:none}}
+    @keyframes r{0%,14%{transform:translateX(-22px)}86%,to{transform:none}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <!-- i due tagli seguono le linee di interruzione, che restano ferme al centro -->
+  <clipPath id="a"><path d="M0,0H123.8L99.2,160H0z"/></clipPath>
+  <clipPath id="b"><path d="M145.8,0H240V160H121.2z"/></clipPath>
+  <g class="l"><path class="y" d="M22,40H150"/><path d="M22,52H150M22,46V58"/></g>
+  <g class="r"><path class="y" d="M90,40H222"/><path d="M90,52H222M222,46V58"/></g>
+  <g clip-path="url(#a)"><path class="l" d="M150,84H58L50,78H25Q22,78 22,81V111Q22,114 25,114H50L58,108H150"/></g>
+  <g clip-path="url(#b)"><g class="r">
+    <path d="M90,84H182L190,78H204V114H190L182,108H90"/>
+    <path d="M204,82L222,85V107L204,110M209,83L206.5,109.5M214,84L211.5,108.7M219,84.6L216.5,108"/>
+  </g></g>
+  <path d="M113,70L105,122M135,70L127,122"/>
+</svg>
